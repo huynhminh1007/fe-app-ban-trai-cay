@@ -1,0 +1,25 @@
+@use "mixins" as *;
+@use "breakpoints" as bp;
+
+.container {
+  width: 100%;
+  margin-inline: auto;
+
+  @each $size, $breakpoint in bp.$breakpoints {
+    @include respond($size) {
+      max-width: map-get(bp.$container-max-widths, $size);
+    }
+  }
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
