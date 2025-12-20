@@ -33,7 +33,7 @@ function MainHeader() {
 
   return (
     <header className="header__main">
-      <div className="container header__utility text-base p-3">
+      <div className="container header__utility text-base py-4">
         {/* Thanh bên trái: nút menu (mobile) + ô tìm kiếm */}
         <div className="flex flex-1 gap-3 items-center">
           <span
@@ -114,7 +114,7 @@ function MainHeader() {
 function SubHeader() {
   return (
     <div className="hidden md:block header__sub">
-      <div className="container flex items-center gap-10 p-3">
+      <div className="container flex items-center gap-10 py-2">
         <div className="header__item mr-10">
           <i className="fa-solid fa-bars"></i>
           <span>Danh sách sản phẩm</span>
