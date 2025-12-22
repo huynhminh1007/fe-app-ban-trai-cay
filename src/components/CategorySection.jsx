@@ -59,7 +59,7 @@ const CATEGORIES = [
   },
 ];
 
-export default function CategorySection() {
+export default function CategorySection({ className = "" }) {
   const [activeId, setActiveId] = useState(CATEGORIES[0].id);
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [isBannerHovered, setIsBannerHovered] = useState(false);
@@ -103,7 +103,7 @@ export default function CategorySection() {
   };
 
   return (
-    <section className="category-section section-container hidden md:block">
+    <section className={`category-section section-container ${className}`}>
       <div className="container">
         <nav className="category-section__left">
           <ul>
@@ -130,7 +130,7 @@ export default function CategorySection() {
 
         <div className="category-section__right">
           {hasSubs ? (
-            <div className="category-section__subs">
+            <div className="category-section__subs h-full">
               {activeCategory.subs.map((group) => (
                 <div key={group.id} className="flex flex-col items-start">
                   <a href="" className="font-bold text-sm mb-2">
