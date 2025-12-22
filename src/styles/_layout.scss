@@ -1,0 +1,36 @@
+@use "mixins" as *;
+@use "breakpoints" as bp;
+@use "variables" as v;
+
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 10px; // mobile
+
+  @include respond(md) {
+    // md = 768px
+    padding-inline: 0;
+  }
+
+  @each $size, $breakpoint in bp.$breakpoints {
+    @include respond($size) {
+      max-width: map-get(bp.$container-max-widths, $size);
+    }
+  }
+}
+
+.section-container {
+  background-color: v.$color-background;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
