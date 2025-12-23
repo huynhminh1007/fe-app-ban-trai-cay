@@ -1,0 +1,139 @@
+@use "../styles/variables" as v;
+
+.product-list-section {
+  &__inner {
+    background-color: white;
+    padding-inline: 10px;
+
+    .heading-bar {
+      border-bottom: 1px solid v.$color-primary-hover;
+      padding-bottom: 5px;
+
+      .title {
+        text-transform: uppercase;
+        color: v.$color-primary;
+        font-weight: bold;
+        text-align: left;
+
+        &:hover {
+          color: v.$color-primary-hover;
+        }
+      }
+    }
+  }
+
+  .product-card {
+    border: 1px solid v.$color-border-2;
+    position: relative;
+    cursor: pointer;
+
+    > div:first-child {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    &__badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: v.$color-light-red;
+      font-weight: bold;
+      font-size: 10px;
+      color: white;
+      z-index: 3;
+      padding: 5px 11px;
+    }
+
+    &__overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.6) 100%
+      );
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    &.group:hover .product-card__overlay,
+    &:hover .product-card__overlay {
+      transform: translateY(0);
+    }
+
+    &__icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      background: #fff;
+      color: v.$color-primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.22s ease-out;
+      transform: scale(0.9);
+      transform-origin: center center;
+      line-height: 1;
+      pointer-events: auto;
+
+      i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &__name {
+      color: v.$color-text;
+
+      &:hover {
+        color: v.$color-primary;
+      }
+    }
+
+    &__price {
+      color: v.$color-primary;
+      cursor: text;
+    }
+
+    &__old-price {
+      color: v.$color-secondary-text;
+      cursor: text;
+    }
+  }
+
+  &__see-more {
+    border-radius: 4px;
+    border: 1px solid v.$color-primary;
+    color: v.$color-primary;
+    background-color: white;
+    cursor: pointer;
+    padding: 0.375rem 0.75rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: v.$color-primary;
+      color: white;
+      border-color: v.$color-primary;
+    }
+  }
+}
