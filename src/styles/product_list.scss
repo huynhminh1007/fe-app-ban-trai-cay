@@ -6,12 +6,14 @@
     padding-inline: 10px;
 
     .heading-bar {
+      border-bottom: 1px solid v.$color-primary-hover;
+      padding-bottom: 5px;
+
       .title {
         text-transform: uppercase;
         color: v.$color-primary;
         font-weight: bold;
-        border-bottom: 1px solid v.$color-border-2;
-        padding-bottom: 10px;
+        text-align: left;
 
         &:hover {
           color: v.$color-primary-hover;
