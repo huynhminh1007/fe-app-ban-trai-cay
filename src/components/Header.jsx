@@ -3,6 +3,8 @@ import logo from "../res/imgs/banner-cong-ty-TGCG.png";
 import CircleIcon from "./utils/CircleIcon";
 import { useState } from "react";
 import SideMenu from "./SideMenu";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Header() {
   return (
@@ -30,6 +32,8 @@ function MainHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen((open) => !open);
+
+  const navigate = useNavigate();
 
   return (
     <header className="header__main">
@@ -90,7 +94,7 @@ function MainHeader() {
 
         {/* Cụm giỏ hàng + chuông – luôn hiện, nhưng thu gọn trên mobile */}
         <div className="flex items-center gap-4">
-          <button type="button" className="header__cart">
+          <button type="button" className="header__cart" onClick={() => navigate("/cart")}>
             <span className="header__cart-icon">
               <i className="fas fa-shopping-bag"></i>
             </span>

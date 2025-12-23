@@ -3,11 +3,23 @@ import "./styles/main.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Home from "./components/Home";
 
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CartPage from "./components/CartPage";
+
 function App() {
   return (
-    <>
-      <Home />
-    </>
+    // <>
+    //   <Home />
+    // </>
+
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<CartPage />} />
+          </Routes>
+      </BrowserRouter>
+
   );
 }
 
