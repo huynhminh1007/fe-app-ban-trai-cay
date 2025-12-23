@@ -1,10 +1,28 @@
 import "../styles/product_list.scss";
 import { formatVND } from "./utils/Format";
 
+const gridCols = {
+  1: "grid-cols-1",
+  2: "grid-cols-2",
+  3: "grid-cols-3",
+  4: "grid-cols-4",
+};
+
+const mdGridCols = {
+  1: "md:grid-cols-1",
+  2: "md:grid-cols-2",
+  3: "md:grid-cols-3",
+  4: "md:grid-cols-4",
+};
+
 export default function ProductListSection({
   className = "",
   title,
   products = [],
+  cols = {
+    base: 2,
+    md: 4,
+  },
 }) {
   return (
     <section className={`product-list-section section-container ${className}`}>
@@ -15,7 +33,11 @@ export default function ProductListSection({
           </h2>
         </div>
 
-        <div className="product-list mt-3 grid gap-4 md:gap-6 grid-cols-2 md:grid-cols-4">
+        <div
+          className={`product-list mt-5 grid gap-4 md:gap-6 ${
+            gridCols[cols.base]
+          } ${mdGridCols[cols.md]}`}
+        >
           {products.map((p, idx) => (
             <article
               key={p.id || idx}
