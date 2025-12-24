@@ -1,0 +1,50 @@
+@use "../styles/variables" as v;
+
+.news-section {
+  &__inner {
+    background-color: white;
+    padding-inline: 10px;
+
+    .img-thumbnail {
+      .icon {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: v.$color-primary;
+        color: white;
+        font-size: 14px;
+      }
+    }
+
+    .heading-bar {
+      border-bottom: 1px solid v.$color-primary-hover;
+      padding-bottom: 5px;
+
+      .title {
+        text-transform: uppercase;
+        color: v.$color-primary;
+        font-weight: bold;
+        text-align: left;
+
+        &:hover {
+          color: v.$color-primary-hover;
+        }
+      }
+    }
+
+    .news-content {
+      .title {
+        &:hover {
+          color: v.$color-primary;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use "../styles/variables" as v;
+
+.side__menu {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 300px;
+  max-width: 80%;
+  background-color: white;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .menu__info {
+    display: flex;
+    align-items: center;
+    background-color: v.$color-primary;
+    color: white;
+
+    // đảm bảo nội dung canh trái, icon và text cùng 1 trục
+    text-align: left;
+    width: 100%;
+
+    .circle-icon {
+      background-color: white;
+      color: v.$color-primary;
+    }
+  }
+}
