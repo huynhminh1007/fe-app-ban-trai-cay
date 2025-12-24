@@ -68,7 +68,7 @@ const CartPage = () => {
                     {/* LEFT: CART TABLE */}
                     <div className="cart-table">
                         <div className="cart-header">
-                            <span>Tên sản phẩm</span>
+                            <span>Sản phẩm</span>
                             <span>Đơn giá</span>
                             <span>Số lượng</span>
                             <span>Tạm tính</span>
