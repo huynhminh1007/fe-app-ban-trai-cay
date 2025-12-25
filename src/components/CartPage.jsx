@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../styles/cartPage.scss";
 import Header from "../components/Header";
+import { useNavigate } from "react-router-dom";
+
 
 const MOCK_CART = [
     {
@@ -19,9 +21,10 @@ const MOCK_CART = [
     },
 ];
 
+
 const CartPage = () => {
     const [cart, setCart] = useState(MOCK_CART);
-
+    const navigate = useNavigate();
     const formatPrice = (value) =>
         value.toLocaleString("vi-VN") + "đ";
 
@@ -129,9 +132,8 @@ const CartPage = () => {
                             <span>{formatPrice(totalPrice)}</span>
                         </div>
 
-                        <button className="checkout">
-                            Thanh toán
-                        </button>
+                        <button className="checkout" onClick={() => navigate("/checkout", {
+                                    state: {cart, totalPrice,},})}> Thanh toán </button>
                     </div>
                 </div>
             </div>
