@@ -1,12 +1,11 @@
-import logo from './logo.svg';
-// import Header from '../src/components/Layout/Header';
-// import Footer from '../src/components/Layout/Footer';
-import ProductGallery from '../src/components/ProductDetail/ProductGallery';
-import ProductInfor from '../src/components/ProductDetail/ProductInfor';
-import ProductDescription from '../src/components/ProductDetail/ProductDescription';
-import ProductSimilar from '../src/components/ProductDetail/ProductSimilar';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ProductGallery from '../components/ProductDetail/ProductGallery';
+import ProductInfor from '../components/ProductDetail/ProductInfor';
+import ProductDescription from '../components/ProductDetail/ProductDescription';
+import ProductSimilar from '../components/ProductDetail/ProductSimilar';
 
-import { productdata } from '../src/Services/ProductData_Test/ProductData';
+import { productdata } from '../Services/ProductData_Test/ProductData';
 
 function ProductDetailPage() {
 
