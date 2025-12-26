@@ -231,3 +231,35 @@ input[type="password"] {
     }
   }
 }
+
+// Responsive Styles
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        height: auto; // chiều cao co giãn tùy chỉnh
+        margin: 10px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            padding-left: 0; 
+            text-align: center;
+        }
+    }
+
+    .form-box {
+        position: relative; 
+        width: 100%;
+        right: 0 !important; // Ghi đè hiệu ứng di chuyển
+        padding: 30px;
+    }
+
+    .toggle-box {
+        display: none; 
+    }
+
+    .container.active .form-box.login {
+        display: none;
+    }
+}
