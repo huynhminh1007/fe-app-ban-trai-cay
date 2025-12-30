@@ -80,6 +80,10 @@
     outline: none;
 }
 
+.input-name:focus {
+    border-color: #2e7d32; /* Viền xanh khi đang gõ */
+}
+
 .input-group {
     display: flex;
     gap: 10px;
@@ -93,6 +97,24 @@
     resize: none;
     outline: none;
     font-family: inherit;
+}
+
+.input-comment:focus {
+    border-color: #2e7d32; /* Viền xanh khi đang gõ */
+}
+
+.btn-emoji {
+    border-radius: 5px;
+    background: transparent;
+    color: #666;
+    font-size: 22px;
+}
+
+.btn-emoji:hover {
+    background-color: #fff8e1; 
+    color: #fbc02d; 
+    transform: scale(1.1); 
+    transition: 0.3s;
 }
 
 .btn-send {
@@ -111,6 +133,43 @@
 
 .btn-send:hover {
     background-color: #1b5e20;
+}
+
+.emoji-picker-wrapper {
+    position: absolute;
+    bottom: 60px; 
+    right: 0;   
+    z-index: 100; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    background: white;
+    animation: popUp 0.2s ease-out;     /* Hiệu ứng hiện ra*/
+}
+
+/* Mũi tên nhỏ trỏ xuống dưới */
+.emoji-picker-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; 
+    right: 55px;  
+    width: 15px;
+    height: 15px;
+    background: white;
+    transform: rotate(45deg); 
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.05);
+    z-index: -1;
+}
+
+/*  animation khi mở bảng */
+@keyframes popUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .review-list {

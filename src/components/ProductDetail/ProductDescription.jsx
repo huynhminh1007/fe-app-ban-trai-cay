@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import '../../styles/ProductDetail_Style/ProductDescription.css';
+import Emojis from './Emoji';
 import { FiStar, FiUser, FiSend } from "react-icons/fi";
 
 function ProductDescription({ data }) {
     const [activeTab, setActiveTab] = useState('description');
 
+    // mảng danh sách feedback 
     const [reviews, setReviews] = useState([
         { id: 1, name: "Nguyễn Văn A", rating: 5, comment: "Cây rất khỏe, đóng gói cẩn thận. Shop tư vấn nhiệt tình.", date: "10/10/2023" },
         { id: 2, name: "Trần Thị B", rating: 4, comment: "Giao hàng hơi chậm chút nhưng cây vẫn tươi. Sẽ ủng hộ lần sau.", date: "12/10/2023" }
@@ -46,6 +48,12 @@ function ProductDescription({ data }) {
             />
         ));
     };
+
+    const [showEmoji, setShowEmoji] = useState(false);
+    // hàm thêm emoji vào comment
+    const EmojiSelect = (emoji) => {
+        setNewReview({ ...newReview, comment: newReview.comment + emoji.emoji });
+    }
 
     // Nếu chưa có data => không hiển thị gì 
     if (!data) return null;
@@ -163,7 +171,19 @@ function ProductDescription({ data }) {
                                         value={newReview.comment}
                                         onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
                                     ></textarea>
+
+                                    {/* Emojis */}
+                                    <button
+                                        type="button"
+                                        className="btn-emoji"
+                                        onClick={() => setShowEmoji(!showEmoji)} // gióng như công tắc bật/tắt (để khỏi cần phải tạo thêm nút tắt) emoji khi click vào icon tượng trưng
+                                    >
+                                        <FiSmile size={24} />
+                                    </button>
+
                                     <button type="submit" className="btn-send"><FiSend /></button>
+                                    {/* Chỉ show component Emojis khi showEmoji = true*/}
+                                    {showEmoji && <Emojis onSelect={EmojiSelect} />}
                                 </div>
                             </form>
                         </div>
@@ -177,11 +197,14 @@ function ProductDescription({ data }) {
                                         <div className="review-avatar">
                                             <div className="avatar-placeholder"><FiUser /></div>
                                         </div>
+
                                         <div className="review-content">
+
                                             <div className="review-header">
                                                 <span className="review-name">{item.name}</span>
                                                 <span className="review-date">{item.date}</span>
                                             </div>
+
                                             <div className="review-rating">
                                                 {renderStars(item.rating)}
                                             </div>
