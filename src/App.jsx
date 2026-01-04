@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/cart" element={<CartPage />} />
+              <Route path="/Gio_hang" element={<CartPage />} />
           </Routes>
       </BrowserRouter>
 

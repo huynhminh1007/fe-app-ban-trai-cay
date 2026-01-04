@@ -94,7 +94,7 @@ function MainHeader() {
 
         {/* Cụm giỏ hàng + chuông – luôn hiện, nhưng thu gọn trên mobile */}
         <div className="flex items-center gap-4">
-          <button type="button" className="header__cart" onClick={() => navigate("/cart")}>
+          <button type="button" className="header__cart" onClick={() => navigate("/Gio_hang")}>
             <span className="header__cart-icon">
               <i className="fas fa-shopping-bag"></i>
             </span>
