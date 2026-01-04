@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../styles/cartPage.scss";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
+import product1 from "../res/imgs/product_1.jpg";
 
 const MOCK_CART = [
     {
@@ -8,14 +10,14 @@ const MOCK_CART = [
         name: "Sầu Riêng Black Thorn D200 Gốc tiêu chuẩn",
         price: 165000,
         quantity: 1,
-        image: "/res/product_1.jpg",
+        image: product1,
     },
     {
         id: 2,
         name: "Cây Giống Sầu Riêng Thái Monthong gốc tiêu chuẩn (1p5-1p7)",
         price: 119000,
         quantity: 1,
-        image: "/res/product_1.jpg",
+        image: product1,
     },
 ];
 
@@ -66,7 +68,7 @@ const CartPage = () => {
                     {/* LEFT: CART TABLE */}
                     <div className="cart-table">
                         <div className="cart-header">
-                            <span>Tên sản phẩm</span>
+                            <span>Sản phẩm</span>
                             <span>Đơn giá</span>
                             <span>Số lượng</span>
                             <span>Tạm tính</span>
@@ -82,7 +84,7 @@ const CartPage = () => {
                                         ✕
                                     </button>
                                     <img src={item.image} alt={item.name} />
-                                    <p>{item.name}</p>
+                                    <a href=" ">{item.name}</a>
                                 </div>
 
                                 <div className="price">
@@ -129,11 +131,14 @@ const CartPage = () => {
                             <span>{formatPrice(totalPrice)}</span>
                         </div>
 
-                        <button className="checkout">
+                        <button className="checkout" >
                             Thanh toán
                         </button>
                     </div>
                 </div>
+            </div>
+            <div className="page-with-header">
+                <Footer />
             </div>
         </div>
     );
