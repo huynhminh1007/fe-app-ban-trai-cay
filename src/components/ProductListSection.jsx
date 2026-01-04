@@ -1,4 +1,5 @@
 import "../styles/product_list.scss";
+import ProductLink from "./navigation/ProductLink";
 import { formatVND } from "./utils/Format";
 
 const gridCols = {
@@ -47,26 +48,32 @@ export default function ProductListSection({
                 {p.badge && (
                   <span className="product-card__badge">{`-${p.badge}`}</span>
                 )}
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  className="w-full h-auto object-cover"
-                />
+                <ProductLink productId={p.id}>
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    className="w-full h-auto object-cover"
+                  />
+                </ProductLink>
 
                 {/* Overlay actions */}
                 <div className="product-card__overlay">
                   <button type="button" className="product-card__icon-btn">
                     <i className="fa-solid fa-cart-plus" />
                   </button>
-                  <a type="button" className="product-card__icon-btn">
+                  <ProductLink
+                    productId={p.id}
+                    className="product-card__icon-btn"
+                    aria-label="Xem chi tiết sản phẩm"
+                  >
                     <i className="fa-solid fa-eye" />
-                  </a>
+                  </ProductLink>
                 </div>
               </div>
 
               <div className="p-3 flex flex-col gap-1">
                 <h3 className="product-card__name line-clamp-2 text-sm">
-                  {p.name}
+                  <ProductLink productId={p.id}>{p.name}</ProductLink>
                 </h3>
                 <div className="flex items-baseline gap-2">
                   <span className="product-card__price text-base font-bold">
