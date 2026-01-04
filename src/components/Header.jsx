@@ -5,7 +5,6 @@ import { useState } from "react";
 import SideMenu from "./SideMenu";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Header() {
   return (
     <div className="header">
@@ -94,7 +93,11 @@ function MainHeader() {
 
         {/* Cụm giỏ hàng + chuông – luôn hiện, nhưng thu gọn trên mobile */}
         <div className="flex items-center gap-4">
-          <button type="button" className="header__cart" onClick={() => navigate("/Gio_hang")}>
+          <button
+            type="button"
+            className="header__cart"
+            onClick={() => navigate("/cart")}
+          >
             <span className="header__cart-icon">
               <i className="fas fa-shopping-bag"></i>
             </span>
