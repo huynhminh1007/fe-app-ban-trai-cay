@@ -55,8 +55,7 @@ export default function Home() {
       <Header />
 
       <div className="page-wrapper">
-        <CategorySection className="hidden md:block mb-[30px]" />
-        <BrandSection className="mb-[30px]" />
+        <BrandSection className="mb-[30px] mt-[30px]" />
         <ProductListSection
           className="mb-[30px]"
           title="Sản phẩm bán chạy"
