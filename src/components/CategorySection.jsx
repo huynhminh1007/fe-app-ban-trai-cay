@@ -157,11 +157,18 @@ export default function CategorySection({ className = "" }) {
               onMouseEnter={() => setIsBannerHovered(true)}
               onMouseLeave={() => setIsBannerHovered(false)}
             >
-              <img
-                src={BANNERS[currentBannerIndex]}
-                alt="Khuyến mãi"
-                className="category-section__banner"
-              />
+              <div
+                className="category-section__banner-track"
+                style={{
+                  transform: `translateX(-${currentBannerIndex * 100}%)`,
+                }}
+              >
+                {BANNERS.map((src, i) => (
+                  <div className="category-section__banner-slide" key={i}>
+                    <img src={src} alt={`Banner ${i + 1}`} />
+                  </div>
+                ))}
+              </div>
 
               {isBannerHovered && (
                 <>
