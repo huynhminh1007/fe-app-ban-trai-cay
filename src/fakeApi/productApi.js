@@ -34,6 +34,14 @@ function getAllChildren(map, parentId) {
   return Array.from(result);
 }
 
+export async function getProductById(id) {
+  const data = await fetchJson("products.json");
+
+  const product = data.find((p) => String(p.id) === String(id));
+
+  return product || null;
+}
+
 export async function getProducts({
   page = 1,
   limit = 10,
