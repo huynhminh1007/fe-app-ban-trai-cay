@@ -7,16 +7,28 @@ export const productdata = [
     // Kỹ thuật trồng
     plantingTechnique: {
         season: "Có thể trồng quanh năm nếu chủ động nước tưới. Tuy nhiên, thời điểm tốt nhất là đầu mùa mưa (Tháng 6 - Tháng 8) để cây con dễ bén rễ.",
+        img1: "https://thegioicaygiong.com/wp-content/uploads/2021/04/ky-thuat-trong-sau-rieng.jpg",
+
         water: "Cây ưa ẩm nhưng không chịu ngập úng. Cần thiết kế mương rãnh thoát nước tốt, độ pH nước từ 5.5 - 6.5.",
+        img2: "https://thegioicaygiong.com/wp-content/uploads/2021/04/ky-thuat-trong-sau-rieng.jpg",
+
         soil: "Thích nghi tốt trên nhiều loại đất (đất đỏ bazan, đất phù sa...). Yêu cầu đất tơi xốp, giàu hữu cơ, tầng canh tác dày, độ pH từ 5.5 - 6.5, độ mặn < 0.3 phần ngàn.",
+        img3: "https://thegioicaygiong.com/wp-content/uploads/2021/04/ky-thuat-trong-sau-rieng.jpg",
+
         seedling: "Chọn cây giống gốc ghép tiêu chuẩn, chiều cao từ 40cm trở lên, vết ghép liền lạc, lá xanh tốt không sâu bệnh.",
+        img4: "https://thegioicaygiong.com/wp-content/uploads/2021/04/ky-thuat-trong-sau-rieng.jpg",
+
         spacing: "Nên trồng thưa để cây quang hợp tốt. Khoảng cách đề xuất: 8m x 8m (156 cây/ha) hoặc 10m x 10m (100 cây/ha)."
     },
 
     // Kỹ thuật chăm sóc
     careTechnique: {
         fertilizer: "Giai đoạn kiến thiết (1-3 năm đầu): Ưu tiên phân hữu cơ vi sinh, phân chuồng ủ hoai (10-20kg/gốc/năm). Bổ sung NPK hàm lượng Đạm và Lân cao để phát triển cành lá.",
+        img1: "https://thegioicaygiong.com/wp-content/uploads/2021/04/ky-thuat-trong-sau-rieng.jpg",
+
         watering: "Tưới nước thường xuyên trong mùa khô. Giai đoạn ra hoa cần siết nước (tạo khô hạn) để kích thích mầm hoa, sau đó tưới lại từ từ.",
+        img2: "https://thegioicaygiong.com/wp-content/uploads/2021/04/ky-thuat-trong-sau-rieng.jpg",
+        
         pestControl: "Thường xuyên thăm vườn để phát hiện sớm: Rầy xanh, Nhện đỏ, Bệnh nứt thân xì mủ (Phytophthora). Sử dụng thuốc BVTV theo nguyên tắc 4 đúng."
     }}
 ];

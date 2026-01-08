@@ -93,15 +93,27 @@ function ProductDescription({ data }) {
 
                             <div className="desc-item">
                                 <p><strong>a) Thời vụ:</strong> {data.plantingTechnique.season}</p>
+                                <div className='desc-img'>
+                                    <img src={data.plantingTechnique.img1} alt="img" />
+                                </div>
                             </div>
                             <div className="desc-item">
                                 <p><strong>b) Lượng nước:</strong> {data.plantingTechnique.water}</p>
+                                <div className='desc-img'>
+                                    <img src={data.plantingTechnique.img1} alt="img" />
+                                </div>
                             </div>
                             <div className="desc-item">
                                 <p><strong>c) Đất trồng:</strong> {data.plantingTechnique.soil}</p>
+                                <div className='desc-img'>
+                                    <img src={data.plantingTechnique.img1} alt="img" />
+                                </div>
                             </div>
                             <div className="desc-item">
                                 <p><strong>d) Tiêu chuẩn cây giống:</strong> {data.plantingTechnique.seedling}</p>
+                                <div className='desc-img'>
+                                    <img src={data.plantingTechnique.img1} alt="img" />
+                                </div>
                             </div>
                             <div className="desc-item">
                                 <p><strong>e) Khoảng cách trồng:</strong> {data.plantingTechnique.spacing}</p>
@@ -113,9 +125,15 @@ function ProductDescription({ data }) {
 
                             <div className="desc-item">
                                 <p><strong>a) Bón phân:</strong> {data.careTechnique.fertilizer}</p>
+                                <div className='desc-img'>
+                                    <img src={data.careTechnique.img1} alt="img" />
+                                </div>
                             </div>
                             <div className="desc-item">
                                 <p><strong>b) Tưới nước:</strong> {data.careTechnique.watering}</p>
+                                <div className='desc-img'>
+                                    <img src={data.careTechnique.img1} alt="img" />
+                                </div>
                             </div>
                             <div className="desc-item">
                                 <p><strong>c) Phòng trừ sâu bệnh:</strong> {data.careTechnique.pestControl}</p>
