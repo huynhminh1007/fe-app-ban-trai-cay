@@ -1,8 +1,6 @@
 import Header from "./Header";
-import CategorySection from "./CategorySection";
 import BrandSection from "./BrandSection";
 import ProductListSection from "./ProductListSection";
-import product1Img from "../res/imgs/product_1.jpg";
 import test1 from "../res/imgs/anh_test_1.jpg";
 import news1 from "../res/imgs/news_1.jpg";
 import cusComment1 from "../res/imgs/customer_comment_1.jpg";
@@ -10,19 +8,8 @@ import phoneIcon from "../res/imgs/phone.png";
 import "../styles/home.scss";
 import NewsSection from "./NewsSection";
 import Footer from "./Footer";
-
-const baseProduct = {
-  name: "Cây Giống Sầu riêng Musang King D197 gốc tiêu chuẩn",
-  price: 9900,
-  oldPrice: 10000,
-  image: product1Img,
-  badge: "14%",
-};
-
-const products = [...Array(6)].map((_, i) => ({
-  ...baseProduct,
-  id: i + 1,
-}));
+import { getProducts } from "../fakeApi/productApi";
+import { useEffect, useState } from "react";
 
 const baseNews = {
   title:
@@ -50,17 +37,26 @@ const cusComments = [...Array(4)].map((_, i) => ({
 }));
 
 export default function Home() {
+  const [onSaleProducts, setOnSaleProducts] = useState([]);
+  const [topSellingProducts, setTopSellingProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts({ onSale: true }).then((res) => setOnSaleProducts(res.data));
+    getProducts({ orderBy: "totalSold", limit: 8 }).then((res) =>
+      setTopSellingProducts(res.data)
+    );
+  }, []);
+
   return (
     <div id="homePage">
       <Header />
 
       <div className="page-wrapper">
-        <CategorySection className="hidden md:block mb-[30px]" />
-        <BrandSection className="mb-[30px]" />
+        <BrandSection className="mb-[30px] mt-[30px]" />
         <ProductListSection
           className="mb-[30px]"
           title="Sản phẩm bán chạy"
-          products={products}
+          products={topSellingProducts}
         />
 
         <section className="home-section__2 section-container mb-[30px]">
@@ -133,7 +129,7 @@ export default function Home() {
               <ProductListSection
                 className="mb-[30px]"
                 title="Sản phẩm đang giảm giá"
-                products={products}
+                products={onSaleProducts}
                 cols={{ base: 2, md: 3 }}
               />
 

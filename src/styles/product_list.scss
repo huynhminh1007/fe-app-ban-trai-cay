@@ -3,7 +3,7 @@
 .product-list-section {
   &__inner {
     background-color: white;
-    padding-inline: 10px;
+    padding-inline: 10px !important;
 
     .heading-bar {
       border-bottom: 1px solid v.$color-primary-hover;

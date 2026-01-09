@@ -3,7 +3,8 @@ import logo from "../res/imgs/banner-cong-ty-TGCG.png";
 import CircleIcon from "./utils/CircleIcon";
 import { useState } from "react";
 import SideMenu from "./SideMenu";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import CategorySection from "./CategorySection";
 
 export default function Header() {
   return (
@@ -119,10 +120,20 @@ function MainHeader() {
 }
 
 function SubHeader() {
+  const [isHoverCategory, setIsHoverCategory] = useState(false);
+  const location = useLocation();
+
+  const ALWAYS_SHOW_CATEGORY = ["/", "/home"];
+  const isAlwaysShow = ALWAYS_SHOW_CATEGORY.includes(location.pathname);
+
   return (
-    <div className="hidden md:block header__sub">
+    <div className="hidden md:block header__sub relative">
       <div className="container flex items-center gap-10 py-2">
-        <div className="header__item mr-10">
+        <div
+          className="header__item mr-10"
+          onMouseEnter={() => setIsHoverCategory(true)}
+          onMouseLeave={() => setIsHoverCategory(false)}
+        >
           <i className="fa-solid fa-bars"></i>
           <span>Danh sách sản phẩm</span>
         </div>
@@ -137,6 +148,20 @@ function SubHeader() {
           <span>Hàng sỉ hữu cơ / tự nhiên giá tốt</span>
         </div>
       </div>
+
+      {/* Trang luôn hiển thị: render bình thường -> đẩy layout */}
+      {isAlwaysShow && <CategorySection className="hidden md:block" />}
+
+      {/* Trang khác: chỉ hover mới hiện & overlay */}
+      {!isAlwaysShow && isHoverCategory && (
+        <div
+          className="header__category-overlay"
+          onMouseEnter={() => setIsHoverCategory(true)}
+          onMouseLeave={() => setIsHoverCategory(false)}
+        >
+          <CategorySection />
+        </div>
+      )}
     </div>
   );
 }

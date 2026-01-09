@@ -3,121 +3,73 @@ import "../styles/category_section.scss";
 import mainBanner1 from "../res/imgs/main_banner_1.jpg";
 import mainBanner2 from "../res/imgs/main_banner_2.jpg";
 import mainBanner3 from "../res/imgs/main_banner_3.jpg";
+import { getCategoryForMenu } from "../fakeApi/categoryApi";
 
 const BANNERS = [mainBanner1, mainBanner2, mainBanner3];
 
-const CATEGORIES = [
-  {
-    id: "cay-an-trai",
-    label: "Cây ăn trái",
-    icon: "fa-apple-whole",
-    subs: null,
-  },
-  {
-    id: "cay-canh",
-    label: "Cây cảnh",
-    icon: "fa-apple-whole",
-    subs: null,
-  },
-  {
-    id: "cay-cong-trinh",
-    label: "Cây công trình",
-    icon: "fa-apple-whole",
-    subs: [
-      {
-        id: "thit-heo",
-        label: "Thịt Heo Hữu Cơ",
-        children: ["Thịt heo ba chỉ", "Thịt heo thăn", "Sườn heo"],
-      },
-      {
-        id: "thuy-hai-san",
-        label: "Thủy & Hải Sản",
-        children: ["Thuỷ Sản", "Hải Sản"],
-      },
-      {
-        id: "thit-bo",
-        label: "Thịt Bò Hữu Cơ",
-        children: ["Thịt Bò Tơ Tây Ninh", "Thịt Bò Obe"],
-      },
-      {
-        id: "kho-mot-nang",
-        label: "Khô & Một Nắng",
-        children: ["Cá khô", "Tôm khô", "Mực khô"],
-      },
-      {
-        id: "thit-gia-cam",
-        label: "Thịt Gia Cầm - Trứng",
-        children: ["Thịt gà", "Thịt vịt", "Trứng gà", "Trứng vịt"],
-      },
-    ],
-  },
-  {
-    id: "cay-giong-si",
-    label: "Cây giống sỉ",
-    icon: "fa-apple-whole",
-    subs: null,
-  },
-];
-
 export default function CategorySection({ className = "" }) {
-  const [activeId, setActiveId] = useState(CATEGORIES[0].id);
+  const [categories, setCategories] = useState([]);
+  const [activeId, setActiveId] = useState(null);
+  const [isHoveringCategory, setIsHoveringCategory] = useState(false);
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [isBannerHovered, setIsBannerHovered] = useState(false);
   const intervalRef = useRef(null);
 
-  const activeCategory = CATEGORIES.find((c) => c.id === activeId);
-  const hasSubs = activeCategory && activeCategory.subs?.length;
+  useEffect(() => {
+    getCategoryForMenu().then((data) => {
+      setCategories(data);
+      if (data.length) setActiveId(data[0].id);
+    });
+  }, []);
+
+  const activeCategory = categories.find((c) => c.id === activeId);
+  const showSubs = isHoveringCategory && activeCategory?.subs?.length > 0;
 
   // Auto-play banner
   useEffect(() => {
-    if (hasSubs || isBannerHovered) {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+    if (showSubs || isBannerHovered) {
+      intervalRef.current && clearInterval(intervalRef.current);
       return;
     }
 
     intervalRef.current = setInterval(() => {
       setCurrentBannerIndex((prev) => (prev + 1) % BANNERS.length);
-    }, 3000); // Đổi banner mỗi 3 giây
+    }, 3000);
 
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [hasSubs, isBannerHovered]);
+    return () => intervalRef.current && clearInterval(intervalRef.current);
+  }, [showSubs, isBannerHovered]);
 
-  const goToNextBanner = () => {
+  const goToNextBanner = () =>
     setCurrentBannerIndex((prev) => (prev + 1) % BANNERS.length);
-  };
 
-  const goToPrevBanner = () => {
+  const goToPrevBanner = () =>
     setCurrentBannerIndex(
       (prev) => (prev - 1 + BANNERS.length) % BANNERS.length
     );
-  };
 
-  const goToBanner = (index) => {
-    setCurrentBannerIndex(index);
-  };
+  const goToBanner = (index) => setCurrentBannerIndex(index);
 
   return (
     <section className={`category-section section-container ${className}`}>
-      <div className="container">
+      <div
+        className="container"
+        onMouseLeave={() => setIsHoveringCategory(false)}
+      >
+        {/* LEFT */}
         <nav className="category-section__left">
           <ul>
-            {CATEGORIES.map((cat) => (
+            {categories.map((cat) => (
               <li
                 key={cat.id}
                 className="category-section__item"
-                onMouseEnter={() => setActiveId(cat.id)}
+                onMouseEnter={() => {
+                  setActiveId(cat.id);
+                  if (cat.subs) setIsHoveringCategory(true);
+                }}
               >
                 <div className="category-section__content">
-                  <i className={`fa-solid ${cat.icon}`} />
-                  <span>
-                    <a href="">{cat.label}</a>
-                  </span>
+                  <i className="fa-solid fa-apple-whole" />
+                  <span>{cat.label}</span>
                 </div>
 
                 {cat.subs && (
@@ -128,8 +80,9 @@ export default function CategorySection({ className = "" }) {
           </ul>
         </nav>
 
+        {/* RIGHT */}
         <div className="category-section__right">
-          {hasSubs ? (
+          {showSubs ? (
             <div className="category-section__subs h-full">
               {activeCategory.subs.map((group) => (
                 <div key={group.id} className="flex flex-col items-start">
@@ -137,7 +90,7 @@ export default function CategorySection({ className = "" }) {
                     {group.label}
                   </a>
 
-                  {group.children && group.children.length > 0 && (
+                  {group.children?.length > 0 && (
                     <ul className="flex flex-col gap-1 w-full">
                       {group.children.map((item, i) => (
                         <li key={i}>
@@ -157,11 +110,18 @@ export default function CategorySection({ className = "" }) {
               onMouseEnter={() => setIsBannerHovered(true)}
               onMouseLeave={() => setIsBannerHovered(false)}
             >
-              <img
-                src={BANNERS[currentBannerIndex]}
-                alt="Khuyến mãi"
-                className="category-section__banner"
-              />
+              <div
+                className="category-section__banner-track"
+                style={{
+                  transform: `translateX(-${currentBannerIndex * 100}%)`,
+                }}
+              >
+                {BANNERS.map((src, i) => (
+                  <div className="category-section__banner-slide" key={i}>
+                    <img src={src} alt={`Banner ${i + 1}`} />
+                  </div>
+                ))}
+              </div>
 
               {isBannerHovered && (
                 <>
@@ -169,7 +129,6 @@ export default function CategorySection({ className = "" }) {
                     type="button"
                     className="category-section__nav-btn category-section__nav-btn--prev"
                     onClick={goToPrevBanner}
-                    aria-label="Banner trước"
                   >
                     <i className="fa-solid fa-chevron-left"></i>
                   </button>
@@ -177,7 +136,6 @@ export default function CategorySection({ className = "" }) {
                     type="button"
                     className="category-section__nav-btn category-section__nav-btn--next"
                     onClick={goToNextBanner}
-                    aria-label="Banner sau"
                   >
                     <i className="fa-solid fa-chevron-right"></i>
                   </button>
@@ -196,7 +154,6 @@ export default function CategorySection({ className = "" }) {
                           : ""
                       }`}
                       onClick={() => goToBanner(index)}
-                      aria-label={`Chuyển đến banner ${index + 1}`}
                     />
                   ))}
                 </div>
