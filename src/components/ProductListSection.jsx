@@ -1,4 +1,8 @@
 import "../styles/product_list.scss";
+<<<<<<< HEAD
+import ProductLink from "./navigation/ProductLink";
+=======
+>>>>>>> a4ffeb9 (add Product-detail page)
 import { formatVND } from "./utils/Format";
 
 const gridCols = {
@@ -47,26 +51,50 @@ export default function ProductListSection({
                 {p.badge && (
                   <span className="product-card__badge">{`-${p.badge}`}</span>
                 )}
+<<<<<<< HEAD
+                <ProductLink productId={p.id}>
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    className="w-full h-auto object-cover"
+                  />
+                </ProductLink>
+=======
                 <img
                   src={p.image}
                   alt={p.name}
                   className="w-full h-auto object-cover"
                 />
+>>>>>>> a4ffeb9 (add Product-detail page)
 
                 {/* Overlay actions */}
                 <div className="product-card__overlay">
                   <button type="button" className="product-card__icon-btn">
                     <i className="fa-solid fa-cart-plus" />
                   </button>
+<<<<<<< HEAD
+                  <ProductLink
+                    productId={p.id}
+                    className="product-card__icon-btn"
+                    aria-label="Xem chi tiết sản phẩm"
+                  >
+                    <i className="fa-solid fa-eye" />
+                  </ProductLink>
+=======
                   <a type="button" className="product-card__icon-btn">
                     <i className="fa-solid fa-eye" />
                   </a>
+>>>>>>> a4ffeb9 (add Product-detail page)
                 </div>
               </div>
 
               <div className="p-3 flex flex-col gap-1">
                 <h3 className="product-card__name line-clamp-2 text-sm">
+<<<<<<< HEAD
+                  <ProductLink productId={p.id}>{p.name}</ProductLink>
+=======
                   {p.name}
+>>>>>>> a4ffeb9 (add Product-detail page)
                 </h3>
                 <div className="flex items-baseline gap-2">
                   <span className="product-card__price text-base font-bold">
