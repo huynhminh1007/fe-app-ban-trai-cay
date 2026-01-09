@@ -4,20 +4,22 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import Home from "./components/Home";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import CartPage from "./components/CartPage";
 import ProductDetail from "./components/products/ProductDetail";
+import ProductDetailPage from "./Pages/ProductDetailPage";
 
 function App() {
   return (
     // <>
-    //   <Home />
+    //   <ProductDetailPage />
     // </>
 
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/products/:id" element={<ProductDetailPage />} />
       </Routes>
     </BrowserRouter>
   );

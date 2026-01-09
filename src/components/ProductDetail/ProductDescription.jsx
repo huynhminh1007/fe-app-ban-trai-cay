@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../styles/ProductDetail_Style/ProductDescription.css';
 import Emojis from './Emoji';
-import { FiStar, FiUser, FiSend } from "react-icons/fi";
+import { FiStar, FiUser, FiSend, FiSmile } from "react-icons/fi";
 
 function ProductDescription({ data }) {
     const [activeTab, setActiveTab] = useState('description');

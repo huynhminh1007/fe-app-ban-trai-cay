@@ -22,7 +22,7 @@ function ProductDetailPage() {
   return (
     <div className="ProductDetailPage">
       {/* header */}
-      {/* <Header /> */}
+      <Header />
 
       {/* Main Product */}
        <main style={{ backgroundColor: '#f4f4f4', paddingBottom: '30px' }}>
@@ -71,7 +71,7 @@ function ProductDetailPage() {
        </main>
 
       {/* footer */}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

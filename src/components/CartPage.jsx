@@ -1,11 +1,8 @@
 import { useState } from "react";
 import "../styles/cartPage.scss";
 import Header from "../components/Header";
-<<<<<<< HEAD
 import Footer from "../components/Footer";
 import product1 from "../res/imgs/product_1.jpg";
-=======
->>>>>>> a4ffeb9 (add Product-detail page)
 
 const MOCK_CART = [
     {
@@ -13,22 +10,14 @@ const MOCK_CART = [
         name: "Sầu Riêng Black Thorn D200 Gốc tiêu chuẩn",
         price: 165000,
         quantity: 1,
-<<<<<<< HEAD
         image: product1,
-=======
-        image: "/res/product_1.jpg",
->>>>>>> a4ffeb9 (add Product-detail page)
     },
     {
         id: 2,
         name: "Cây Giống Sầu Riêng Thái Monthong gốc tiêu chuẩn (1p5-1p7)",
         price: 119000,
         quantity: 1,
-<<<<<<< HEAD
         image: product1,
-=======
-        image: "/res/product_1.jpg",
->>>>>>> a4ffeb9 (add Product-detail page)
     },
 ];
 
@@ -79,11 +68,7 @@ const CartPage = () => {
                     {/* LEFT: CART TABLE */}
                     <div className="cart-table">
                         <div className="cart-header">
-<<<<<<< HEAD
                             <span>Sản phẩm</span>
-=======
-                            <span>Tên sản phẩm</span>
->>>>>>> a4ffeb9 (add Product-detail page)
                             <span>Đơn giá</span>
                             <span>Số lượng</span>
                             <span>Tạm tính</span>
@@ -99,11 +84,7 @@ const CartPage = () => {
                                         ✕
                                     </button>
                                     <img src={item.image} alt={item.name} />
-<<<<<<< HEAD
                                     <a href=" ">{item.name}</a>
-=======
-                                    <p>{item.name}</p>
->>>>>>> a4ffeb9 (add Product-detail page)
                                 </div>
 
                                 <div className="price">
@@ -150,22 +131,15 @@ const CartPage = () => {
                             <span>{formatPrice(totalPrice)}</span>
                         </div>
 
-<<<<<<< HEAD
                         <button className="checkout" >
-=======
-                        <button className="checkout">
->>>>>>> a4ffeb9 (add Product-detail page)
                             Thanh toán
                         </button>
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
             <div className="page-with-header">
                 <Footer />
             </div>
-=======
->>>>>>> a4ffeb9 (add Product-detail page)
         </div>
     );
 };
