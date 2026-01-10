@@ -52,7 +52,7 @@ export default function NewsSection({
               <div className="">
                 <a href="" className="img-thumbnail relative group">
                   <img
-                    src={item.image}
+                    src={item.thumbnail || item.image}
                     alt={item.title}
                     className="w-full h-full object-cover"
                   />
@@ -71,9 +71,12 @@ export default function NewsSection({
                   {item.title}
                 </a>
 
-                <p className="text-sm line-clamp-[6] left min-height-[85px] leading-relaxed">
-                  {item.content}
-                </p>
+                <p
+                  className="text-sm line-clamp-[6] min-h-[85px] leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html: item.excerpt || item.content,
+                  }}
+                />
               </div>
             </article>
           ))}

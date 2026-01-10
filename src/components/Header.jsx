@@ -1,10 +1,11 @@
 import "../styles/header.scss";
 import logo from "../res/imgs/banner-cong-ty-TGCG.png";
 import CircleIcon from "./utils/CircleIcon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SideMenu from "./SideMenu";
 import { useLocation, useNavigate } from "react-router-dom";
 import CategorySection from "./CategorySection";
+import { getCartCount } from "../fakeApi/cartApi";
 
 export default function Header() {
   return (
@@ -20,7 +21,7 @@ function TopHeader() {
   return (
     <div className="header__top">
       <picture>
-        <a href="" title="Banner Top">
+        <a href="/" title="Banner Top">
           <img className="banner" src={logo} alt="Banner Top" />
         </a>
       </picture>
@@ -29,11 +30,16 @@ function TopHeader() {
 }
 
 function MainHeader() {
+  const [cartCount, setCartCount] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen((open) => !open);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setCartCount(getCartCount("1"));
+  });
 
   return (
     <header className="header__main">
@@ -103,7 +109,7 @@ function MainHeader() {
               <i className="fas fa-shopping-bag"></i>
             </span>
             <span className="hidden text-sm md:inline">Giỏ hàng</span>
-            <span className="text-xs md:text-sm">0</span>
+            <span className="text-xs md:text-sm">{cartCount}</span>
           </button>
 
           <button type="button" className="hidden md:grid header__icon-btn">
@@ -121,19 +127,22 @@ function MainHeader() {
 
 function SubHeader() {
   const [isHoverCategory, setIsHoverCategory] = useState(false);
+  const [isHoverCategorySection, setIsHoverCategorySection] = useState(false);
   const location = useLocation();
 
   const ALWAYS_SHOW_CATEGORY = ["/", "/home"];
   const isAlwaysShow = ALWAYS_SHOW_CATEGORY.includes(location.pathname);
 
+  const showOverlay = isHoverCategory || isHoverCategorySection;
+
   return (
-    <div className="hidden md:block header__sub relative">
+    <div
+      className="hidden md:block header__sub relative"
+      onMouseEnter={() => setIsHoverCategory(true)}
+      onMouseLeave={() => setIsHoverCategory(false)}
+    >
       <div className="container flex items-center gap-10 py-2">
-        <div
-          className="header__item mr-10"
-          onMouseEnter={() => setIsHoverCategory(true)}
-          onMouseLeave={() => setIsHoverCategory(false)}
-        >
+        <div className="header__item mr-10">
           <i className="fa-solid fa-bars"></i>
           <span>Danh sách sản phẩm</span>
         </div>
@@ -150,16 +159,14 @@ function SubHeader() {
       </div>
 
       {/* Trang luôn hiển thị: render bình thường -> đẩy layout */}
-      {isAlwaysShow && <CategorySection className="hidden md:block" />}
+      {isAlwaysShow && (
+        <CategorySection className="hidden md:block section-container" />
+      )}
 
       {/* Trang khác: chỉ hover mới hiện & overlay */}
-      {!isAlwaysShow && isHoverCategory && (
-        <div
-          className="header__category-overlay"
-          onMouseEnter={() => setIsHoverCategory(true)}
-          onMouseLeave={() => setIsHoverCategory(false)}
-        >
-          <CategorySection />
+      {!isAlwaysShow && showOverlay && (
+        <div className="header__category-overlay">
+          <CategorySection onHoverChange={setIsHoverCategorySection} />
         </div>
       )}
     </div>

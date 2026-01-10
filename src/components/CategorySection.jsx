@@ -7,7 +7,7 @@ import { getCategoryForMenu } from "../fakeApi/categoryApi";
 
 const BANNERS = [mainBanner1, mainBanner2, mainBanner3];
 
-export default function CategorySection({ className = "" }) {
+export default function CategorySection({ className = "", onHoverChange }) {
   const [categories, setCategories] = useState([]);
   const [activeId, setActiveId] = useState(null);
   const [isHoveringCategory, setIsHoveringCategory] = useState(false);
@@ -50,7 +50,11 @@ export default function CategorySection({ className = "" }) {
   const goToBanner = (index) => setCurrentBannerIndex(index);
 
   return (
-    <section className={`category-section section-container ${className}`}>
+    <section
+      className={`category-section ${className}`}
+      onMouseEnter={() => onHoverChange?.(true)}
+      onMouseLeave={() => onHoverChange?.(false)}
+    >
       <div
         className="container"
         onMouseLeave={() => setIsHoveringCategory(false)}

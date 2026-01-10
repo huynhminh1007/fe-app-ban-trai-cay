@@ -1,57 +1,51 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/cartPage.scss";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import product1 from "../res/imgs/product_1.jpg";
-
-const MOCK_CART = [
-  {
-    id: 1,
-    name: "Sầu Riêng Black Thorn D200 Gốc tiêu chuẩn",
-    price: 165000,
-    quantity: 1,
-    image: product1,
-  },
-  {
-    id: 2,
-    name: "Cây Giống Sầu Riêng Thái Monthong gốc tiêu chuẩn (1p5-1p7)",
-    price: 119000,
-    quantity: 1,
-    image: product1,
-  },
-];
+import { formatVND } from "./utils/Format";
+import { updateQuantity, getCart } from "../fakeApi/cartApi";
 
 const CartPage = () => {
-  const [cart, setCart] = useState(MOCK_CART);
+  const [cart, setCart] = useState();
+  const [totalPrice, setTotalPrice] = useState();
 
-  const formatPrice = (value) => value.toLocaleString("vi-VN") + "đ";
+  async function reloadCart() {
+    const res = await getCart("1", [
+      "id",
+      "name",
+      "prices",
+      "images",
+      "on_sale",
+    ]);
+    setCart(res);
 
-  const increaseQty = (id) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
+    const total = res.items.reduce(
+      (sum, i) => sum + Number(i.product.prices.price) * i.quantity,
+      0
     );
+    setTotalPrice(total);
+
+    console.log(res);
+  }
+
+  useEffect(() => {
+    reloadCart();
+  }, []);
+
+  const increaseQty = async (id) => {
+    await updateQuantity(1, id, 1);
+    reloadCart();
   };
 
-  const decreaseQty = (id) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
-    );
+  const decreaseQty = async (id) => {
+    await updateQuantity(1, id, -1);
+    reloadCart();
   };
 
-  const removeItem = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
+  const removeItem = async (id) => {
+    await updateQuantity(1, id, -9999);
+    reloadCart();
   };
-
-  const totalPrice = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
 
   return (
     <div className="cart-page">
@@ -71,32 +65,48 @@ const CartPage = () => {
               <span>Tạm tính</span>
             </div>
 
-            {cart.map((item) => (
-              <div className="cart-row" key={item.id}>
-                <div className="product-info">
-                  <button
-                    className="remove-btn"
-                    onClick={() => removeItem(item.id)}
-                  >
-                    ✕
-                  </button>
-                  <img src={item.image} alt={item.name} />
-                  <a href=" ">{item.name}</a>
-                </div>
+            {cart?.items?.map((item) => {
+              const { product, quantity } = item;
+              const prices = product.prices;
+              const thumbnail = product.images[0].src;
 
-                <div className="price">{formatPrice(item.price)}</div>
+              return (
+                <div className="cart-row" key={product.id}>
+                  <div className="product-info">
+                    <button
+                      className="remove-btn"
+                      onClick={() => removeItem(product.id)}
+                    >
+                      ✕
+                    </button>
+                    <img src={thumbnail} alt={product.name} />
+                    <a href=" ">{product.name}</a>
+                  </div>
 
-                <div className="quantity">
-                  <button onClick={() => decreaseQty(item.id)}>−</button>
-                  <span>{item.quantity}</span>
-                  <button onClick={() => increaseQty(item.id)}>+</button>
-                </div>
+                  <div className="price">
+                    <span className="sale-price">
+                      {formatVND(prices.price)}
+                    </span>
 
-                <div className="subtotal">
-                  {formatPrice(item.price * item.quantity)}
+                    {product.on_sale && (
+                      <span className="regular-price">
+                        {formatVND(prices.regular_price)}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="quantity">
+                    <button onClick={() => decreaseQty(product.id)}>−</button>
+                    <span>{quantity}</span>
+                    <button onClick={() => increaseQty(product.id)}>+</button>
+                  </div>
+
+                  <div className="subtotal">
+                    {formatVND(prices.price * item.quantity)}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
 
             <div className="cart-actions">
               <button className="btn btn-green">Tiếp tục mua hàng</button>
@@ -110,12 +120,12 @@ const CartPage = () => {
 
             <div className="summary-row">
               <span>Tạm tính</span>
-              <span>{formatPrice(totalPrice)}</span>
+              <span>{formatVND(totalPrice)}</span>
             </div>
 
             <div className="summary-row total">
               <span>Tổng đơn hàng</span>
-              <span>{formatPrice(totalPrice)}</span>
+              <span>{formatVND(totalPrice)}</span>
             </div>
 
             <button className="checkout">Thanh toán</button>
