@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "name": "Cây Giống Hợp Đồng",
+    "slug": "cay-giong-hop-dong",
+    "description": "",
+    "parent": 540,
+    "count": 38,
+    "link": "https://thegioicaygiong.com/category/cay-giong-si/cay-giong-hop-dong"
+  },
+  {
+    "id": 540,
+    "name": "Cây giống sỉ",
+    "slug": "cay-giong-si",
+    "description": "",
+    "parent": 0,
+    "count": 24,
+    "link": "https://thegioicaygiong.com/category/cay-giong-si"
+  },
+  {
+    "id": 491,
+    "name": "Đánh giá",
+    "slug": "danh-gia",
+    "description": "",
+    "parent": 0,
+    "count": 0,
+    "link": "https://thegioicaygiong.com/category/danh-gia"
+  },
+  {
+    "id": 341,
+    "name": "Giá Nông Sản",
+    "slug": "gia-nong-san",
+    "description": "",
+    "parent": 0,
+    "count": 126,
+    "link": "https://thegioicaygiong.com/category/gia-nong-san"
+  },
+  {
+    "id": 28,
+    "name": "Góc tư vấn cây ăn quả",
+    "slug": "goc-tu-van-cay-an-qua",
+    "description": "",
+    "parent": 25,
+    "count": 133,
+    "link": "https://thegioicaygiong.com/category/ky-thuat-trong/goc-tu-van-cay-an-qua"
+  },
+  {
+    "id": 26,
+    "name": "Góc tư vấn cây trồng",
+    "slug": "goc-tu-van-cay-trong",
+    "description": "",
+    "parent": 25,
+    "count": 111,
+    "link": "https://thegioicaygiong.com/category/ky-thuat-trong/goc-tu-van-cay-trong"
+  },
+  {
+    "id": 346,
+    "name": "Góc tuyển dụng công ty",
+    "slug": "goc-tuyen-dung-cong-ty",
+    "description": "",
+    "parent": 0,
+    "count": 5,
+    "link": "https://thegioicaygiong.com/category/goc-tuyen-dung-cong-ty"
+  },
+  {
+    "id": 25,
+    "name": "Kỹ Thuật Trồng",
+    "slug": "ky-thuat-trong",
+    "description": "",
+    "parent": 0,
+    "count": 134,
+    "link": "https://thegioicaygiong.com/category/ky-thuat-trong"
+  },
+  {
+    "id": 21,
+    "name": "Tin tức",
+    "slug": "tin-tuc",
+    "description": "",
+    "parent": 0,
+    "count": 338,
+    "link": "https://thegioicaygiong.com/category/tin-tuc"
+  }
+]
