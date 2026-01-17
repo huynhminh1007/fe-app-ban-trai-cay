@@ -44,6 +44,22 @@
   }
 }
 
+.css_select_div{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.css_select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  height: 40px;
+  border-radius: 4px;
+
+}
+
+
 .two-col {
   flex-direction: row;
   gap: 20px;
@@ -118,6 +134,70 @@
     background: #256528;
   }
 }
+.popup-overlay {
+  position: fixed; // Cố định vị trí so với khung hình trình duyệt
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); // Màu nền mờ đen
+  display: flex;
+  justify-content: center; // Căn giữa theo chiều ngang
+  align-items: center; // Căn giữa theo chiều dọc
+  z-index: 9999; // Đảm bảo luôn nằm trên các thành phần khác
+}
+
+.popup-content {
+  background-color: #b2c598;
+  padding: 40px;
+  border-radius: 20px;
+  position: relative;
+  width: 600px;
+  height: 500px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  .success-title {
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    color: #000;
+  }
+
+  .popup-image {
+    width: 300px;
+    margin: 0 auto 0;
+    display: block;
+  }
+
+  .success-message {
+    padding-bottom: 50px;
+    p {
+      margin: 5px 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+      line-height: 1.5;
+    }
+  }
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -128,4 +208,6 @@
   .two-col {
     flex-direction: column;
   }
+
+
 }
