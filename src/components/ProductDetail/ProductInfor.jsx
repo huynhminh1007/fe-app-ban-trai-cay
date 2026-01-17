@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import '../../styles/ProductDetail_Style/ProductInfor.css';
 import { FiShoppingBag } from "react-icons/fi";
 
-const ProductInfo = () => {
+const ProductInfo = ({ product }) => {
 
     const [quantity, setQuantity] = useState(1);
 
@@ -24,11 +24,16 @@ const ProductInfo = () => {
         }
     };
 
+
+    // kiểm tra stock trong product để hiển thị tình trạng
+    const stockCount = product?.stock || 0; 
+    const isOutOfStock = stockCount <= 0;
+
     return (
         <div className="product-info-wrapper">
-            <h1 className="p-title">Cây Giống Sầu riêng Musang King D197 gốc tiêu chuẩn</h1>
+            <h1 className="p-title">{product.name}</h1>
             
-            <div className="p-price">99.000₫</div>
+            <div className="p-price">{product.prices.price}đ</div>
 
             <div className="specs-table-container">
                 <table className="specs-table">
@@ -72,19 +77,30 @@ const ProductInfo = () => {
             <div className="product-meta-data">
                 <p className="meta-row">
                     <strong>Tình trạng: </strong> 
-                    <span style={{color: 'red', fontWeight: 'bold'}}>Hết hàng</span> 
-                    {/* <span style={{color: '2e7d32', fontWeight: 'bold'}}>Hết hàng</span>  */}
+                    {isOutOfStock ? (
+                        <span style={{color: 'red', fontWeight: 'bold'}}>Hết hàng</span>
+                    ) : (
+                        <span style={{color: '#21c42a', fontWeight: 'bold'}}>Còn hàng : {stockCount}</span>
+                    )}
                 </p>
                 
                 <p className="meta-row">
                     <strong>Danh mục: </strong> 
-                    <a href="#">Cây ăn trái</a>, <a href="#">Cây giống Sầu Riêng</a>, <a href="#">Sản phẩm bán chạy</a>, <a href="#">Sầu riêng Musang King</a>
+                    {product.categories?.map((cat, index) => (
+                        <span key={cat.id || index}>
+                            <a href={'#'}>{cat.name}</a>
+                        </span>
+                    ))}
                 </p>
                 
                 <p className="meta-row tags">
                     <strong>Từ khóa: </strong>
-                    <a href="#">cây giống sầu riêng musang king</a>, <a href="#">có nên trồng sầu riêng musang king</a>, 
-                    <a href="#">giá cây giống sầu riêng musang king</a>, <a href="#">giống cây trồng</a>, <a href="#">sầu riêng musang king d197</a>
+                    {product.tags.map((tag, index) => (
+                            <span key={tag.id || index}>
+                                <a href={'#'}>{tag.name}</a>
+                                {index < product.tags.length - 1 ? ", " : ""}
+                            </span>
+                        ))}
                 </p>
             </div>
 
