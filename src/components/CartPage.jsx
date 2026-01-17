@@ -4,10 +4,14 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { formatVND } from "./utils/Format";
 import { updateQuantity, getCart } from "../fakeApi/cartApi";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const CartPage = () => {
   const [cart, setCart] = useState();
   const [totalPrice, setTotalPrice] = useState();
+  const navigate = useNavigate();
 
   async function reloadCart() {
     const res = await getCart("1", [
@@ -127,8 +131,7 @@ const CartPage = () => {
               <span>Tổng đơn hàng</span>
               <span>{formatVND(totalPrice)}</span>
             </div>
-
-            <button className="checkout">Thanh toán</button>
+            <button className="checkout" onClick={() => navigate("/checkout")}>Thanh toán </button>
           </div>
         </div>
       </div>

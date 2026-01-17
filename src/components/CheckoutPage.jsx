@@ -4,7 +4,6 @@ import Footer from "./Footer";
 import {useState,useEffect} from "react";
 
 
-
 export default function CheckoutPage() {
 
     const [showPopup, setShowPopup] = useState(false)
