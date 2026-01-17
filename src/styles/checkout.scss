@@ -81,6 +81,24 @@
 .order-box {
   border: 1px solid #ddd;
 }
+.order-product {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
+
+  span {
+    font-size: 14px;
+    color: #2e7d32;
+  }
+}
 
 .order-header,
 .order-item,
