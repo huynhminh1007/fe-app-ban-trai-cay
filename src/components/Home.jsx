@@ -1,41 +1,15 @@
 import Header from "./Header";
-import CategorySection from "./CategorySection";
 import BrandSection from "./BrandSection";
 import ProductListSection from "./ProductListSection";
-import product1Img from "../res/imgs/product_1.jpg";
 import test1 from "../res/imgs/anh_test_1.jpg";
-import news1 from "../res/imgs/news_1.jpg";
 import cusComment1 from "../res/imgs/customer_comment_1.jpg";
 import phoneIcon from "../res/imgs/phone.png";
 import "../styles/home.scss";
 import NewsSection from "./NewsSection";
 import Footer from "./Footer";
-
-const baseProduct = {
-  name: "Cây Giống Sầu riêng Musang King D197 gốc tiêu chuẩn",
-  price: 9900,
-  oldPrice: 10000,
-  image: product1Img,
-  badge: "14%",
-};
-
-const products = [...Array(6)].map((_, i) => ({
-  ...baseProduct,
-  id: i + 1,
-}));
-
-const baseNews = {
-  title:
-    "Điều kiện tự nhiên của tỉnh Cà Mau thích hợp trồng những loại cây ăn trái nào?",
-  content:
-    "Thành công trồng cây ăn trái ở vùng đất có khí hậu, thổ nhưỡng [...]",
-  image: news1,
-};
-
-const news = [...Array(4)].map((_, i) => ({
-  ...baseNews,
-  id: i + 1,
-}));
+import { getProducts } from "../fakeApi/productApi";
+import { useEffect, useState } from "react";
+import { getPosts } from "../fakeApi/postApi";
 
 const baseCusComment = {
   title: "Mr.Hoàng",
@@ -50,6 +24,20 @@ const cusComments = [...Array(4)].map((_, i) => ({
 }));
 
 export default function Home() {
+  const [onSaleProducts, setOnSaleProducts] = useState([]);
+  const [topSellingProducts, setTopSellingProducts] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [newPosts, setNewPosts] = useState([]);
+
+  useEffect(() => {
+    getProducts({ onSale: true }).then((res) => setOnSaleProducts(res.data));
+    getProducts({ orderBy: "totalSold", limit: 8 }).then((res) =>
+      setTopSellingProducts(res.data)
+    );
+    getPosts({ categoryId: 25, limit: 4 }).then((res) => setPosts(res.data));
+    getPosts({ categoryId: 21, limit: 5 }).then((res) => setNewPosts(res.data));
+  }, []);
+
   return (
     <div id="homePage">
       <Header />
@@ -59,7 +47,7 @@ export default function Home() {
         <ProductListSection
           className="mb-[30px]"
           title="Sản phẩm bán chạy"
-          products={products}
+          products={topSellingProducts}
         />
 
         <section className="home-section__2 section-container mb-[30px]">
@@ -90,34 +78,14 @@ export default function Home() {
 
                 <div>
                   <ul className="news">
-                    <li className="border border-[#ececec] p-[10px]">
-                      <a href="">
-                        Điều kiện tự nhiên của tỉnh Cà Mau thích hợp trồng những
-                        loại cây ăn trái nào?
-                      </a>
-                    </li>
-
-                    <li className="border border-[#ececec] p-[10px]">
-                      <a href="">Mít có thể chịu được mặn không?</a>
-                    </li>
-
-                    <li className="border border-[#ececec] p-[10px]">
-                      <a href="">Sầu riêng có trồng được ở Long An không?</a>
-                    </li>
-
-                    <li className="border border-[#ececec] p-[10px]">
-                      <a href="">
-                        Long An trồng cây ăn quả gì để năng suất tốt, giá trị
-                        kinh tế cao?
-                      </a>
-                    </li>
-
-                    <li className="border border-[#ececec] p-[10px]">
-                      <a href="">
-                        Măng cụt có chịu mặn được không? Hướng dẫn trồng và chăm
-                        sóc cây măng cụt đúng cách.
-                      </a>
-                    </li>
+                    {newPosts.map((item) => (
+                      <li
+                        className="border border-[#ececec] p-[10px]"
+                        key={item.id}
+                      >
+                        <a href="">{item.title}</a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -132,14 +100,14 @@ export default function Home() {
               <ProductListSection
                 className="mb-[30px]"
                 title="Sản phẩm đang giảm giá"
-                products={products}
+                products={onSaleProducts}
                 cols={{ base: 2, md: 3 }}
               />
 
               <NewsSection
                 className="mb-[30px]"
                 title="Kỹ thuật trồng cây"
-                news={news}
+                news={posts}
                 cols={{ base: 1, md: 2 }}
               />
 

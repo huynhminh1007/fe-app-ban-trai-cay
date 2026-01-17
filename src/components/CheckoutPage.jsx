@@ -50,11 +50,11 @@ export default function CheckoutPage() {
                     <div className="form-row two-col">
                         <div>
                             <label>Tên <span>*</span></label>
-                            <input type="text"/>
+                            <input type="text" />
                         </div>
                         <div>
                             <label>Họ (tùy chọn)</label>
-                            <input type="text"/>
+                            <input type="text" />
                         </div>
                     </div>
 

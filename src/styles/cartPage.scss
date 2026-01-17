@@ -275,3 +275,14 @@
     }
   }
 }
+
+.price {
+  display: flex;
+  flex-direction: column;
+
+  .regular-price {
+    font-size: 13px;
+    color: #666;
+    text-decoration: line-through;
+  }
+}
