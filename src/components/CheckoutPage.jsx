@@ -1,6 +1,9 @@
 import "../styles/checkout.scss";
 import Header from "./Header";
 import Footer from "./Footer";
+import { getCart } from "../fakeApi/cartApi";
+import { formatVND } from "./utils/Format";
+
 import {useState,useEffect} from "react";
 
 
@@ -11,6 +14,31 @@ export default function CheckoutPage() {
     const [tinhList, setTinhList] = useState([]);
     const [quanList, setQuanList] = useState([]);
     const [selectedTinh, setSelectedTinh] = useState("");
+    const [cart, setCart] = useState(null);
+    const [totalPrice, setTotalPrice] = useState(0);
+    useEffect(() => {
+        async function loadCart() {
+            const res = await getCart("1", [
+                "id",
+                "name",
+                "prices",
+                "images",
+                "on_sale",
+            ]);
+
+            setCart(res);
+
+            const total = res.items.reduce(
+                (sum, i) => sum + Number(i.product.prices.price) * i.quantity,
+                0
+            );
+
+            setTotalPrice(total);
+        }
+
+        loadCart();
+    }, []);
+
 
     useEffect(() => {
         fetch("https://esgoo.net/api-tinhthanh-new/1/0.htm")
@@ -114,26 +142,35 @@ export default function CheckoutPage() {
                             <span>Tổng</span>
                         </div>
 
-                        <div className="order-item">
-                            <span>Sầu Riêng Black Thorn D200 × 1</span>
-                            <span>165.000đ</span>
-                        </div>
+                        {cart?.items?.map(item => {
+                            const { product, quantity } = item;
+                            const thumbnail = product.images[0].src;
+                            const price = product.prices.price;
 
-                        <div className="order-item">
-                            <span>Cây giống sầu riêng Monthong × 1</span>
-                            <span>119.000đ</span>
-                        </div>
+                            return (
+                                <div className="order-item" key={product.id}>
+                                    <div className="order-product">
+                                        <img src={thumbnail} alt={product.name} />
+                                        <span>
+                        {product.name} × {quantity}
+                    </span>
+                                    </div>
+                                    <span>{formatVND(price * quantity)}</span>
+                                </div>
+                            );
+                        })}
 
                         <div className="order-subtotal">
                             <span>Tạm tính</span>
-                            <span>284.000đ</span>
+                            <span>{formatVND(totalPrice)}</span>
                         </div>
 
                         <div className="order-total">
                             <span>Tổng</span>
-                            <span>284.000đ</span>
+                            <span>{formatVND(totalPrice)}</span>
                         </div>
                     </div>
+
 
                     <div className="payment-method">
                         <label>
