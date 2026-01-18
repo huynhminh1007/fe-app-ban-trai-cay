@@ -4,1098 +4,1271 @@
     "name": "Bơ 034",
     "slug": "bo-034",
     "parent": 34,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 454,
     "name": "Bơ Booth",
     "slug": "bo-booth",
     "parent": 34,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 451,
     "name": "Bơ Sáp Da Xanh",
     "slug": "bo-sap-da-xanh",
     "parent": 34,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 472,
     "name": "Bông trang đỏ Thái",
     "slug": "bong-trang-do-thai",
     "parent": 108,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 475,
     "name": "Bông trang Mỹ hồng",
     "slug": "bong-trang-my-hong",
     "parent": 108,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 471,
     "name": "Bông Trang thường",
     "slug": "bong-trang-thuong",
     "parent": 108,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 430,
     "name": "Bưởi Da Xanh",
     "slug": "buoi-da-xanh",
     "parent": 31,
-    "count": 3
+    "count": 2,
+    "description": ""
   },
   {
     "id": 431,
     "name": "Bưởi Năm Roi",
     "slug": "buoi-nam-roi",
     "parent": 31,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 433,
     "name": "Bưởi Phúc Kiến",
     "slug": "buoi-phuc-kien",
     "parent": 31,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 432,
     "name": "Bưởi Ruby",
     "slug": "buoi-ruby",
     "parent": 31,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 460,
     "name": "Cam Ca-Ra Ruột Đỏ",
     "slug": "cam-ca-ra",
     "parent": 48,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 463,
     "name": "Cam Dây",
     "slug": "cam-day",
     "parent": 48,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 461,
     "name": "Cam Sành",
     "slug": "cam-sanh",
     "parent": 48,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 462,
     "name": "Cam Xoàn",
     "slug": "cam-xoan",
     "parent": 48,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 16,
     "name": "Cây ăn trái",
     "slug": "cay-an-trai",
     "parent": 0,
-    "count": 126
+    "count": 128,
+    "description": "<strong>Mô tả sản phẩm về cây ăn quả:</strong>\r\n\r\nViệt Nam muôn nghìn cây trái khác nhau, loài cây nào cũng mang đến những lợi ích riêng đối với đời sống con người. Có những loại cây trồng đem lại nguồn gỗ quý cũng có những loại cây đen lại giá trị kinh tế cao. <a href=\"http://thegioicaygiong.com\">Công ty Thế giới cây giống</a> hiện cung cấp đa dạng các mặt hàng về cây giống ăn quả vd: cây giống ổi, xoài, sầu riêng, mít, dừa, ổi, mận, măng cụt&#8230;."
   },
   {
     "id": 185,
     "name": "Cây Bàng",
     "slug": "cay-bang",
     "parent": 18,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 371,
     "name": "Cây Bàng Singapore",
     "slug": "cay-bang-singapore",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 108,
     "name": "Cây Bông Trang",
     "slug": "cay-bong-trang",
     "parent": 17,
-    "count": 6
+    "count": 6,
+    "description": ""
   },
   {
     "id": 17,
     "name": "Cây Cảnh",
     "slug": "cay-canh",
     "parent": 0,
-    "count": 29
+    "count": 28,
+    "description": ""
   },
   {
     "id": 364,
     "name": "Cây Cau Nhật",
     "slug": "cay-cau-nhat",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 464,
     "name": "Cây Cóc Thái",
     "slug": "cay-coc-thai",
     "parent": 78,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 18,
     "name": "Cây Công Trình",
     "slug": "cay-cong-trinh",
     "parent": 0,
-    "count": 6
+    "count": 6,
+    "description": ""
   },
   {
     "id": 121,
     "name": "Cây Dầu",
     "slug": "cay-dau-lam-nghiep",
     "parent": 18,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 34,
     "name": "Cây giống Bơ",
     "slug": "cay-giong-bo",
     "parent": 16,
-    "count": 3
+    "count": 3,
+    "description": "<strong>Mô tả sản phẩm về cây giống Bơ</strong>\r\n\r\nTại Việt Nam hiện nay cây bơ có thể trồng được tại nhiều vùng miền khác nhau. Tuy nhiên để cây bơ cho năng suất cao và chất lượng tốt nhất , thì Tây Nguyên vẫn là vùng trồng thích hợp hơn cả, đặc biệt là trên đất đỏ Bazan tầng canh tác dày, thoát nước tốt, có hàm lượng dinh dưỡng trong đất cao. Hiện tại <a href=\"http://thegioicaygiong.com\">Thế giới cây giống</a> kinh doanh 3 loại giống Bơ như: Bơ 034, Bơ booth trái tròn, Bơ sáp da xanh với cây đúng giống, khỏe đẹp."
   },
   {
     "id": 63,
     "name": "Cây giống Bòn Bon Thái",
     "slug": "cay-giong-bon-bon-thai",
     "parent": 16,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 31,
     "name": "Cây giống Bưởi",
     "slug": "cay-giong-buoi",
     "parent": 16,
-    "count": 6
+    "count": 5,
+    "description": "<em><strong><span style=\"font-size: 20px;color: #008000\">Mô tả cây giống Bưởi</span></strong></em>\r\n\r\nHiện tại Bưởi là cây trồng cho kinh tế, năng suất cao cho bà con nông dân.\r\n\r\nGiá trị của trái bưởi nằm ở chỗ nó không chỉ là món ăn ngon và bổ dưỡng, mà còn có thể được xem là bài thuốc phòng và trị bệnh. Bưởi da xanh hầu như không bỏ thứ gì, từ phần ruột cho đến phần vỏ đều có thể ăn tươi (múi bưởi) hoặc chế biến (vỏ bưởi).\r\n\r\n<a href=\"https://thegioicaygiong.com/\">Công ty Thế Giới Cây Giống</a> cung cấp các giống Bưởi như: Bưởi da xanh, bưởi ruby, bưởi năm roi, bưởi tiến vua."
   },
   {
     "id": 79,
     "name": "Cây giống Cà Na",
     "slug": "cay-giong-ca-na",
     "parent": 16,
-    "count": 1
+    "count": 1,
+    "description": "<strong>Cà na Thái</strong> là một giống cây được trồng nhiều ở bờ Nam sông Hậu. Cây cà na Thái dễ trồng, cho năng suất cao và khả năng kháng bệnh giỏi. Bà con có nhu cầu mua cây giống cà na Thái về trồng làm kinh tế, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn nhé.\r\n\r\n<strong>Thế Giới Cây Giống</strong> là nơi cung cấp giống cây trồng uy tín, có hệ thống phân phối và giao hàng trên cả nước. Hotline tư vấn miễn phí: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 48,
     "name": "Cây giống Cam",
     "slug": "cay-giong-cam",
     "parent": 16,
-    "count": 4
+    "count": 4,
+    "description": "<strong>Cam</strong> là một giống cây trung hạn, được trồng chuyên canh hoặc xen canh với các giống cây trồng khác. Cây cam thường dễ trồng, nhưng cần được chăm sóc đúng kỹ thuật để cây cho năng suất cao. Cây cho trái sau khoảng 15 -18 tháng trồng.\r\n\r\nBà con có nhu cầu mua các giống cam về trồng làm kinh tế, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn nhé.\r\n\r\n<strong>Thế Giới Cây Giống</strong> là nơi cung cấp giống cây trồng uy tín, có hệ thống phân phối và giao hàng trên cả nước. Hotline tư vấn miễn phí: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 37,
     "name": "Cây giống Chanh",
     "slug": "cay-giong-chanh",
     "parent": 16,
-    "count": 5
+    "count": 5,
+    "description": "<strong>Chanh</strong> là một trong những giống cây trung hạn, có thể trồng chuyên canh hoặc xen canh đều mang lại hiệu quả kinh tế cao. Bà con có nhu cầu mua <strong>cây giống chanh chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 75,
     "name": "Cây giống Cherry Brazil",
     "slug": "cay-giong-cherry-brazil",
     "parent": 16,
-    "count": 3
+    "count": 3,
+    "description": "Cây giống Cherry Brazil là một trong những giống cây trung hạn, có thể trồng chuyên canh hoặc xen canh đều mang lại hiệu quả kinh tế cao. Bà con có nhu cầu mua <strong>cây giống Cherry Brazil chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 38,
     "name": "Cây giống Chôm Chôm",
     "slug": "cay-giong-chom-chom",
     "parent": 16,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 74,
     "name": "Cây giống Chùm Ruột",
     "slug": "cay-giong-chum-ruot",
     "parent": 16,
-    "count": 1
+    "count": 1,
+    "description": "<strong>Cây giống Chùm Ruột</strong> là một trong những giống cây dễ trồng, khả năng kháng bệnh và năng suất đều cao. Bà con có nhu cầu mua <strong>cây giống chùm ruột chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 78,
     "name": "Cây giống Cóc Thái",
     "slug": "cay-giong-coc-thai",
     "parent": 16,
-    "count": 1
+    "count": 1,
+    "description": "Cây giống Cóc Thái là một trong những giống cây dễ trồng, ít sâu bệnh và năng suất cao, mang lại nguồn thu nhập ổn định. Bà con có nhu cầu mua <strong>cây giống cóc Thái chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 80,
     "name": "Cây giống Dâu",
     "slug": "cay-giong-dau",
     "parent": 16,
-    "count": 2
+    "count": 2,
+    "description": "<strong>Cây giống Dâu</strong> là một trong những giống cây lâu năm, ít sâu bệnh, có thể trồng chuyên canh để làm kinh tế. Bà con có nhu cầu mua <strong>cây giống dâu chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 64,
     "name": "Cây giống Dừa",
     "slug": "cay-giong-dua",
     "parent": 16,
-    "count": 7
+    "count": 7,
+    "description": "<strong>Cây giống Dừa</strong> là một trong những giống cây đang hot hiện nay. Cây dễ trồng, năng suất cao, đầu ra ổn định. Bà con có nhu cầu mua <strong>cây giống dừa chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 1683,
     "name": "Cây Giống Hồng Xiêm Ruột Đỏ",
     "slug": "cay-giong-hong-xiem-ruot-do",
     "parent": 97,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 87,
     "name": "Cây giống Khế",
     "slug": "cay-giong-khe",
     "parent": 16,
-    "count": 2
+    "count": 2,
+    "description": "<strong>Cây giống Khế</strong> là một trong những giống cây trung hạn, có thể trồng chuyên canh hoặc xen canh đều mang lại hiệu quả kinh tế cao. Bà con có nhu cầu mua <strong>cây giống khế chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé. Có 2 giống khế được bán chạy như:\r\n\r\n<strong>Giống khế chua</strong>\r\n\r\n<strong>Giống khế ngọt</strong>\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 88,
     "name": "Cây giống Lựu",
     "slug": "cay-giong-luu",
     "parent": 16,
-    "count": 2
+    "count": 2,
+    "description": "<strong>Cây giống Lựu</strong> là một trong những giống cây dễ trồng, năng suất cao, có thể trồng chuyên canh hoặc xen canh. Bà con có nhu cầu mua <strong>cây giống lựu chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé. Có 2 giống lựu được mua nhiều như:\r\n\r\n<strong>Cây giống lựu </strong>\r\n\r\n<strong>Cây giống lựu lùn cao sản Ấn Độ</strong>\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 49,
     "name": "Cây giống Mận",
     "slug": "cay-giong-man",
     "parent": 16,
-    "count": 2
+    "count": 4,
+    "description": "<strong>Cây giống Mận</strong> là một trong những giống cây dễ trồng, cho năng suất cao, có thể trồng chuyên canh hoặc xen canh đều mang lại hiệu quả kinh tế. Bà con có nhu cầu mua <strong>cây giống mận chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé. Có 2 giống mận được mua nhiều là:\r\n\r\n<strong>Mận Đỏ An Phước</strong>\r\n\r\n<strong>Mận Tam Hoa xanh</strong>\r\n\r\n<strong>Mận Xanh Đường</strong>\r\n\r\n<strong>Mận Hồng MST</strong>\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 91,
     "name": "Cây giống Mãng Cầu",
     "slug": "cay-giong-mang-cau",
     "parent": 16,
-    "count": 4
+    "count": 4,
+    "description": "<strong>Cây giống Mãng Cầu</strong> là một trong những giống cây trồng cho năng suất cao, có thể trồng chuyên canh hoặc xen canh để làm kinh tế. Bà con có nhu cầu mua <strong>cây giống mãng cầu chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 90,
     "name": "Cây giống Măng Cụt",
     "slug": "cay-giong-mang-cut",
     "parent": 16,
-    "count": 2
+    "count": 2,
+    "description": "<strong>Cây giống Măng Cụt</strong> là một trong những giống cây lâu năm, lâu cho trái, nhưng chất lượng trái ngon, giá thành cao, mang lại nguồn thu nhập ổn định. Bà con có nhu cầu mua <strong>cây giống măng cụt chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 89,
     "name": "Cây giống Me Thái",
     "slug": "cay-giong-me-thai",
     "parent": 16,
-    "count": 1
+    "count": 1,
+    "description": "<strong>Cây giống Me Thái</strong> là một trong những giống cây cho trái ngọt, giá thành cao, được trồng ngày càng nhiều vì nó cho thu nhập ổn định. Bà con có nhu cầu mua <strong>cây giống me Thái chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 35,
     "name": "Cây giống Mít",
     "slug": "cay-giong-mit",
     "parent": 16,
-    "count": 14
+    "count": 14,
+    "description": "Với mong muốn đem đến chất lượng <strong>giống cây trồng tốt nhất</strong> hiện nay, Thế giới cây giống đã không ngừng nỗ lực cập nhật, nghiên cứu và cho ra đời nhiều dòng giống cây trồng chất lượng.\r\nTrong đó, chúng ta không thể không kể đến những loại cây giống mít chất lượng như:\r\n<strong>Giống mít Thái siêu sớm</strong>\r\n<strong>Giống mít ruột đỏ</strong>\r\n<strong>Mít nghệ tứ quý</strong>\r\n<strong>Mít tố nữ</strong>\r\n<strong>Mít Mã Lai</strong>\r\n<strong>Giống mít cây lá bàng</strong>\r\nCó điều đặc biệt là, mua các loại giống cây trồng tại Thế giới cây giống không những được cam kết về chất lượng, tạo nên những loại cây có năng suất cao và đảm bảo kinh tế. Mà hơn hết, tất cả những loại giống mít này đều đảm bảo độ sinh trưởng và phát triển tốt, ngay sau khi chọn mua sẽ đem đến năng suất bất ngờ cho người nông dân."
   },
   {
     "id": 1682,
     "name": "Cây Giống Mít Ruột Đỏ Lá Bầu Indo",
     "slug": "cay-giong-mit-ruot-do-la-bau-indo",
     "parent": 35,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 94,
     "name": "Cây giống Nhãn",
     "slug": "cay-giong-nhan",
     "parent": 16,
-    "count": 7
+    "count": 7,
+    "description": "<strong>Cây giống Nhãn</strong> là một trong những giống cây trồng cho cho năng suất cao, được trồng ngày càng nhiều để phát triển kinh tế gia đình. Bà con có nhu cầu mua <strong>cây giống nhãn chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\nĐến với Thế Giới Cây Giống, bà con có thể mua được các giống nhãn đang được bán chạy như:\r\n\r\n<b>Cây giống nhãn xuồng cơm vàng</b>\r\n\r\n<strong>Cây giống nhãn xuồng tím</strong>\r\n\r\n<strong>Cây giống nhãn long tím</strong>\r\n\r\n<strong>Cây giống nhãn Ido</strong>\r\n\r\n<strong>Cây giống nhãn hồng phúc</strong>\r\n\r\n<strong>Cây giống nhãn phát tài</strong>\r\n\r\n<strong>Cây giống thanh nhãn</strong>\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 95,
     "name": "Cây giống Nho",
     "slug": "cay-giong-nho",
     "parent": 16,
-    "count": 2
+    "count": 2,
+    "description": "<strong>Cây giống Nho</strong> là một trong những giống cây cho năng suất cao, thu nhập ổn định. Bà con có nhu cầu mua <strong>cây giống nho chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\nThế Giới Cây Giống cung cấp 2 giống nho đang mang lại giá trị kinh tế cao cho bà con là:\r\n\r\n<strong>Giống nho Ninh Thuận</strong>\r\n\r\n<strong>Giống nho thân gỗ</strong>\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 497,
     "name": "Cây giống Ổi",
     "slug": "cay-giong-oi",
     "parent": 16,
-    "count": 8
+    "count": 8,
+    "description": "<strong>Cây giống Ổi</strong> là một trong những giống cây dễ trồng, dễ chăm sóc. Cây cho năng suất cao, được trồng chuyên canh hoặc xen canh để gia tăng thu nhập. Bà con có nhu cầu mua <strong>cây giống ổi chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\nThế Giới Cây Giống chuyên cung cấp các giống ổi chất lượng, cây khỏe đẹp, bảo hành đúng giống. Các giống ổi đang được bán chạy như:\r\n\r\n<strong>Cây giống ổi Lê Đài Loan</strong>\r\n\r\n<strong>Cây Giống ổi Nữ hoàng</strong>\r\n\r\n<strong>Cây Giống ổi Ruby Ruột đỏ</strong>\r\n\r\n<strong>Cây giống ổi Trân Châu Ruột đỏ</strong>\r\n\r\n<strong>Cây giống ổi tím</strong>\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 43,
     "name": "Cây giống Quýt Đường",
     "slug": "cay-giong-quyt-duong",
     "parent": 16,
-    "count": 1
+    "count": 1,
+    "description": "<strong>Cây giống Quýt Đường</strong> là một trong những giống cây trung hạn, cho năng suất cao, được trồng ngày càng nhiều vì nó cho thu nhập ổn định. Bà con có nhu cầu mua <strong>cây giống quýt đường chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 96,
     "name": "Cây giống Sa Kê",
     "slug": "cay-giong-sa-ke",
     "parent": 16,
-    "count": 1
+    "count": 1,
+    "description": "<strong>Cây giống Sa kê</strong> là một trong những giống cây lâu năm, khả năng sinh trưởng mạnh, ít sâu bệnh. Bà con có nhu cầu mua <strong>cây giống sa kê chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 97,
     "name": "Cây giống Sapoche",
     "slug": "cay-giong-sapoche",
     "parent": 16,
-    "count": 4
+    "count": 4,
+    "description": "<strong>Cây giống Sapoche</strong> là một trong những giống cây siêu trái, cho trái quanh năm, mang lại nguồn thu nhập đáng kể. Bà con có nhu cầu mua <strong>cây giống Sapoche chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé. Có các giống Sapoche được trồng nhiều như:\r\n\r\n<strong>Giống sapoche Vĩnh kim</strong>\r\n\r\n<strong>Giống sapoche Cần Thơ</strong>\r\n\r\n<strong>Giống sapoche Mehico</strong>\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 44,
     "name": "Cây giống Sầu Riêng",
     "slug": "cay-giong-sau-rieng",
     "parent": 16,
-    "count": 10
+    "count": 10,
+    "description": "Thế giới cây giống chuyên cung cấp các loại giống cây trồng với đa dạng về loại, điểm chung là chất lượng giống cây tốt, mang lại năng suất cao và nguồn thu nhập khủng cho những người nông dân.\r\n<strong>Mua giống <a href=\"https://thegioicaygiong.com/product-category/cay-an-trai/cay-sau-rieng\">cây sầu riêng</a></strong> tại đây, bạn có thể thoải mái lựa chọn các loại giống cây sầu riêng khác nhau như:\r\n<strong><em>Sầu riêng Ri6</em></strong>\r\n<strong><em>Sầu riêng Musang King</em></strong>\r\n<strong><em>Sầu riêng Chuồng Bò</em></strong>\r\n<strong><em>Sầu riêng Thái</em></strong>\r\nMỗi loại sầu riêng được Thế giới cây giống cung cấp sẽ có những đặc điểm riêng về thời gian trồng, số lượng và độ ngon khác nhau. Thế nhưng điểm chung của các loại giống cây này đều cam kết về chất lượng, giúp cây sinh trưởng phát triển tốt trong những điều kiện thời tiết khác nhau."
   },
   {
     "id": 374,
     "name": "Cây Giống Sen vua",
     "slug": "cay-giong-sen-vua",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 122,
     "name": "Cây giống Si rô",
     "slug": "cay-giong-si-ro",
     "parent": 16,
-    "count": 1
+    "count": 1,
+    "description": "<strong>Cây giống Si rô</strong> là một trong những giống cây có thể trồng thu trái hoặc trồng làm kiểng rất có giá trị. Bà con có nhu cầu mua <strong>cây giống Si rô chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 98,
     "name": "Cây giống Sơ Ri",
     "slug": "cay-giong-so-ri",
     "parent": 16,
-    "count": 1
+    "count": 1,
+    "description": "<strong>Giống Sơ Ri</strong> là một trong những giống cây cho năng suất cao, cây dễ trồng, ít sâu bệnh. Bà con có nhu cầu mua <strong>cây giống Sơ ri chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 1688,
     "name": "Cây Giống Sung Mỹ",
     "slug": "cay-giong-sung-my",
     "parent": 16,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 99,
     "name": "Cây giống Tắc",
     "slug": "cay-giong-tac",
     "parent": 16,
-    "count": 2
+    "count": 3,
+    "description": "<strong>Cây giống Tắc</strong> là một trong những giống cây rất dễ trồng, năng suất cao, thường được trồng xen canh với các cây lâu năm, với mục tiêu lấy ngắn nuôi dài rất hiệu quả. Bà con có nhu cầu mua <strong>cây giống tắc chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé.\r\n\r\nCó 2 giống tắc được mua nhiều tại Thế Giới Cây Giống như:\r\n\r\n<strong>Giống tắc Thái</strong>\r\n\r\n<strong>Giống tắc thường</strong>\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 100,
     "name": "Cây giống Táo",
     "slug": "cay-giong-tao",
     "parent": 16,
-    "count": 3
+    "count": 3,
+    "description": "<strong>Cây giống táo</strong> là một trong những giống cây siêu trái, mang lại nguồn thu nhập ổn định. Bà con có nhu cầu mua <strong>cây giống táo chất lượng</strong>, hãy liên hệ ngay đến Thế Giới Cây Giống để được tư vấn cụ thể nhé. Có 2 giống táo đang được mua nhiều như:\r\n<strong>Giống táo Thái</strong>\r\n\r\n<strong>Giống táo đỏ</strong>\r\n\r\n<a href=\"http://thegioicaygiong.com\"><strong>Thế Giới Cây Giống</strong></a> là một cơ sở sản xuất và kinh doanh các giống cây trồng chất lượng, uy tín, có hệ thống phân phối và giao hàng trên toàn quốc. Hotline tư vấn: 0784.664499 &#8211; 0906.194819."
   },
   {
     "id": 360,
     "name": "Cây giống Thần Kỳ",
     "slug": "cay-giong-than-ky",
     "parent": 16,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 373,
     "name": "Cây giống Thanh Long",
     "slug": "cay-giong-thanh-long",
     "parent": 16,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 210,
     "name": "Cây giống Thanh Trà",
     "slug": "cay-giong-thanh-tra",
     "parent": 16,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 105,
     "name": "Cây giống Vú Sữa",
     "slug": "cay-giong-vu-sua",
     "parent": 16,
-    "count": 7
+    "count": 7,
+    "description": ""
   },
   {
     "id": 47,
     "name": "Cây giống Xoài",
     "slug": "cay-giong-xoai",
     "parent": 16,
-    "count": 8
+    "count": 8,
+    "description": ""
   },
   {
     "id": 367,
     "name": "Cây Hoa Giấy",
     "slug": "cay-hoa-giay",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 387,
     "name": "Cây Hoa Sim",
     "slug": "cay-giong-hoa-sim",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 372,
     "name": "Cây Hoa Sứ",
     "slug": "cay-hoa-su",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 376,
     "name": "Cây Hoàng Nam",
     "slug": "cay-giong-hoang-nam",
     "parent": 18,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 393,
     "name": "Cây Hồng Lộc",
     "slug": "cay-giong-hong-loc",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 377,
     "name": "Cây Kim Ngân Lượng",
     "slug": "cay-giong-kim-ngan-luong",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 397,
     "name": "Cây Linh Sam",
     "slug": "cay-linh-sam",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 382,
     "name": "Cây Lưỡi Hổ",
     "slug": "cay-luoi-ho",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 366,
     "name": "Cây Mai Chiếu Thủy",
     "slug": "cay-mai-chieu-thuy",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 365,
     "name": "Cây Mai Vạn Phúc",
     "slug": "cay-mai-van-phuc",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 113,
     "name": "Cây Mai Vàng",
     "slug": "cay-mai-vang",
     "parent": 17,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 114,
     "name": "Cây Nguyệt Quế",
     "slug": "cay-nguyet-que",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 115,
     "name": "Cây Sao Đen",
     "slug": "cay-sao-den",
     "parent": 18,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 116,
     "name": "Cây Sưa Đỏ",
     "slug": "cay-sua-do",
     "parent": 18,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 120,
     "name": "Cây Sung Mỹ",
     "slug": "cay-sung-my",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 405,
     "name": "Cây Trà My",
     "slug": "cay-giong-tra-my",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 370,
     "name": "Cây Trâm Vối",
     "slug": "cay-tram-voi",
     "parent": 18,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 369,
     "name": "Cây Trang Leo",
     "slug": "cay-trang-leo",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 401,
     "name": "Cây Trúc bách hợp",
     "slug": "cay-truc-bach-hop",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 117,
     "name": "Cây Tuyết Sơn",
     "slug": "cay-tuyet-son",
     "parent": 17,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 119,
     "name": "Cây Vạn Niên Tùng",
     "slug": "cay-van-nien-tung",
     "parent": 17,
-    "count": 2
+    "count": 1,
+    "description": ""
   },
   {
     "id": 446,
     "name": "Chanh Bông Tím",
     "slug": "chanh-bong-tim",
     "parent": 37,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 449,
     "name": "Chanh Đào",
     "slug": "chanh-dao",
     "parent": 37,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 447,
     "name": "Chanh Giấy",
     "slug": "chanh-giay",
     "parent": 37,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 448,
     "name": "Chanh Không Hạt",
     "slug": "chanh-khong-hat",
     "parent": 37,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 450,
     "name": "Chanh Ngón Tay",
     "slug": "chanh-ngon-tay",
     "parent": 37,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 506,
     "name": "Chôm Chôm Thái",
     "slug": "chom-chom-thai",
     "parent": 38,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 507,
     "name": "Chôm Chôm Tiến Cường",
     "slug": "chom-chom-tien-cuong",
     "parent": 38,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 465,
     "name": "Dâu Vàng",
     "slug": "dau-vang",
     "parent": 80,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 466,
     "name": "Dâu Xanh",
     "slug": "dau-xanh",
     "parent": 80,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 435,
     "name": "Dừa Dứa",
     "slug": "cay-dua-dua",
     "parent": 64,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 436,
     "name": "Dừa Mã Lai",
     "slug": "cay-ma-lai",
     "parent": 64,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 440,
     "name": "Dừa Ta",
     "slug": "dua-ta-lun",
     "parent": 64,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 437,
     "name": "Dừa Tam Quan",
     "slug": "dua-tam-quan",
     "parent": 64,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 438,
     "name": "Dừa Xiêm Dây",
     "slug": "dua-xiem-day",
     "parent": 64,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 439,
     "name": "Dừa Xiêm Đỏ",
     "slug": "dua-xiem-do",
     "parent": 64,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 434,
     "name": "Dừa Xiêm Xanh",
     "slug": "dua-xiem-xanh",
     "parent": 64,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 468,
     "name": "Khế Chua",
     "slug": "khe-chua",
     "parent": 87,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 467,
     "name": "Khế Ngọt",
     "slug": "khe-ngot",
     "parent": 87,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 469,
     "name": "Lựu Lùn Cao Sản",
     "slug": "luu-lun-cao-san",
     "parent": 88,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 470,
     "name": "Lựu thường",
     "slug": "luu-thuong",
     "parent": 88,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 485,
     "name": "Mận An Phước",
     "slug": "ma%cc%a3n-an-phuoc",
     "parent": 49,
-    "count": 2
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 2411,
+    "name": "Mận Hồng MST",
+    "slug": "man-hong-mst",
+    "parent": 49,
+    "count": 3,
+    "description": ""
   },
   {
     "id": 486,
     "name": "Mận Tam Hoa",
     "slug": "ma%cc%a3n-tam-hoa",
     "parent": 49,
-    "count": 1
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 2412,
+    "name": "Mận xanh đường",
+    "slug": "man-xanh-duong",
+    "parent": 49,
+    "count": 3,
+    "description": ""
   },
   {
     "id": 488,
     "name": "Mãng Cầu Xiêm Thái",
     "slug": "mang-cau-xiem-thai",
     "parent": 91,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 514,
     "name": "Mít Không Hạt",
     "slug": "mit-khong-hat",
     "parent": 35,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 127,
     "name": "Mít Mã Lai",
     "slug": "mit-ma-lai",
     "parent": 35,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 131,
     "name": "Mít Nghệ Tứ Quý",
     "slug": "mit-nghe-tu-quy",
     "parent": 35,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 126,
     "name": "Mít Ruột Đỏ",
     "slug": "mit-ruot-do",
     "parent": 35,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 125,
     "name": "Mít Thái Siêu Sớm",
     "slug": "mit-thai",
     "parent": 35,
-    "count": 5
+    "count": 5,
+    "description": ""
   },
   {
     "id": 132,
     "name": "Mít Tố Nữ",
     "slug": "mit-to-nu",
     "parent": 35,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 508,
     "name": "Na Đài Loan",
     "slug": "na-dai-loan",
     "parent": 91,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 509,
     "name": "Na Thái",
     "slug": "na-thai",
     "parent": 91,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 487,
     "name": "Na Thường",
     "slug": "mang-cau-na-thuong",
     "parent": 91,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 456,
     "name": "Nhãn Hồng Phúc",
     "slug": "nhan-hong-phuc",
     "parent": 94,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 458,
     "name": "Nhãn Idor (Edor)",
     "slug": "nhan-ido",
     "parent": 94,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 2404,
     "name": "Nhãn Long Phụng Châu",
     "slug": "nhan-long-phung-chau",
     "parent": 94,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 457,
     "name": "Nhãn Long Tím",
     "slug": "nhan-long-tim",
     "parent": 94,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 459,
     "name": "Nhãn Xuồng Cơm Vàng",
     "slug": "nhan-xuong",
     "parent": 94,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 505,
     "name": "Nhãn Xuồng Tím",
     "slug": "nhan-xuong-tim",
     "parent": 94,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 511,
     "name": "Nho Ninh Thuận",
     "slug": "nho-ninh-thuan",
     "parent": 95,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 510,
     "name": "Nho Thân Gỗ",
     "slug": "nho-than-go",
     "parent": 95,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 499,
     "name": "Ổi Đài Loan",
     "slug": "oi-dai-loan-cay-giong-oi-cay-an-trai",
     "parent": 497,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 500,
     "name": "Ổi Dứa",
     "slug": "oi-dua-cay-giong-oi-cay-an-trai",
     "parent": 497,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 504,
     "name": "Ổi Không Hạt",
     "slug": "oi-khong-hat-cay-giong-oi-cay-an-trai",
     "parent": 497,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 498,
     "name": "Ổi Nữ Hoàng",
     "slug": "oi-nu-hoang-cay-giong-oi-cay-an-trai",
     "parent": 497,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 502,
     "name": "Ổi Ruby",
     "slug": "oi-ruby-cay-giong-oi-cay-an-trai",
     "parent": 497,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 501,
     "name": "Ổi Ruột Đỏ",
     "slug": "oi-ruot-do-cay-giong-oi-cay-an-trai",
     "parent": 497,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 503,
     "name": "Ổi Tím",
     "slug": "oi-tim-cay-giong-oi-cay-an-trai",
     "parent": 497,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 823,
     "name": "Phân bón",
     "slug": "phan-bon",
     "parent": 0,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 839,
     "name": "Phân Dơi Hữu Cơ",
     "slug": "phan-doi-huu-co",
     "parent": 823,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 833,
     "name": "Phân Rơm Ủ Mục",
     "slug": "phan-rom-u-muc",
     "parent": 823,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 493,
     "name": "Sản phẩm bán chạy",
     "slug": "san-pham-ban-chay",
     "parent": 0,
-    "count": 18
+    "count": 17,
+    "description": ""
   },
   {
     "id": 494,
     "name": "Sản phẩm đang giảm giá",
     "slug": "san-pham-dang-giam-gia",
     "parent": 0,
-    "count": 9
+    "count": 8,
+    "description": ""
   },
   {
     "id": 483,
     "name": "Sapoche Cần Thơ",
     "slug": "sapoche-can-tho",
     "parent": 97,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 484,
     "name": "Sapoche Mêhico",
     "slug": "sapoche-mehico",
     "parent": 97,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 482,
     "name": "Sapoche Vĩnh Kim",
     "slug": "sapoche-vinh-kim",
     "parent": 97,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 1842,
     "name": "Sầu riêng Black Thorn",
     "slug": "https-thegioicaygiong-com-product-sau-rieng-black-thorn-d200-cay-giong-sau-rieng",
     "parent": 44,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 480,
     "name": "Sầu Riêng Chuồng Bò",
     "slug": "sau-rieng-chuong-bo",
     "parent": 44,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 478,
     "name": "Sầu riêng Musang King",
     "slug": "sau-rieng-musang-king",
     "parent": 44,
-    "count": 3
+    "count": 3,
+    "description": ""
   },
   {
     "id": 479,
     "name": "Sầu Riêng Ri 6",
     "slug": "sau-rieng-ri-6",
     "parent": 44,
-    "count": 3
+    "count": 3,
+    "description": ""
   },
   {
     "id": 481,
     "name": "Sầu Riêng Thái",
     "slug": "sau-rieng-thai",
     "parent": 44,
-    "count": 4
+    "count": 4,
+    "description": ""
   },
   {
     "id": 512,
     "name": "Thanh Nhãn",
     "slug": "thanh-nhan",
     "parent": 94,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 444,
     "name": "Vú Sữa Bắc Thảo",
     "slug": "vu-sua-bac-thao",
     "parent": 105,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 441,
     "name": "Vú Sữa Bơ Hồng",
     "slug": "vu-sua-bo-hong",
     "parent": 105,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 445,
     "name": "Vú Sữa Hoàng Kim",
     "slug": "vu-sua-hoang-kim",
     "parent": 105,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 442,
     "name": "Vú Sữa Lò Rèn",
     "slug": "vu-sua-lo-ren",
     "parent": 105,
-    "count": 2
+    "count": 2,
+    "description": ""
   },
   {
     "id": 443,
     "name": "Vú Sữa Mica",
     "slug": "vu-sua-mica",
     "parent": 105,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 513,
     "name": "Xoài Cát Chu",
     "slug": "xoai-cat-chu",
     "parent": 47,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 421,
     "name": "Xoài Cát Hòa Lộc",
     "slug": "xoai-cat-hoa-loc",
     "parent": 47,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 422,
     "name": "Xoài Đài Loan",
     "slug": "xoai-dai-loan",
     "parent": 47,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 420,
     "name": "Xoài Keo",
     "slug": "xoai-keo",
     "parent": 47,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 419,
     "name": "Xoài Ngọc Vân",
     "slug": "xoai-ngoc-van",
     "parent": 47,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 418,
     "name": "Xoài Thái",
     "slug": "xoai-thai",
     "parent": 47,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 417,
     "name": "Xoài Tứ Quý",
     "slug": "xoai-tu-quy",
     "parent": 47,
-    "count": 1
+    "count": 1,
+    "description": ""
   },
   {
     "id": 416,
     "name": "Xoài Úc",
     "slug": "xoai-uc",
     "parent": 47,
-    "count": 1
+    "count": 1,
+    "description": ""
   }
 ]
