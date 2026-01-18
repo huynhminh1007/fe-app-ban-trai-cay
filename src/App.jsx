@@ -9,11 +9,19 @@ import ProductDetailPage from "./Pages/ProductDetailPage";
 import CheckoutPage from "./components/CheckoutPage";
 import ProductListPage from "./components/ProductListPage";
 
+import Register from "./Pages/authenticationPage/Register";
+import ResetPass from "./Pages/authenticationPage/ResetPass";
+import ConfirmPass from "./Pages/authenticationPage/ConfirmPass";
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Register />} />
+        <Route path="/reset-password" element={<ResetPass />} />
+        <Route path="/confirm-password" element={<ConfirmPass />} />
+
+        <Route path="/home" element={<Home />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />

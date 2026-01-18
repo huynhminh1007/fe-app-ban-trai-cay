@@ -92,7 +92,7 @@ function MainHeader() {
             <div>
               <div className="header__item-title">Tài khoản</div>
               <div className="header__link">
-                <a href="">Đăng nhập</a>
+                <Link to="/">Đăng nhập</Link>
               </div>
             </div>
           </div>
