@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import { getProducts } from "../fakeApi/productApi";
 import { useEffect, useState } from "react";
 import { getPosts } from "../fakeApi/postApi";
+import { Link } from "react-router-dom";
 
 const baseCusComment = {
   title: "Mr.Hoàng",
@@ -80,12 +81,17 @@ export default function Home() {
                 <div>
                   <ul className="news">
                     {newPosts.map((item) => (
-                      <li
-                        className="border border-[#ececec] p-[10px]"
-                        key={item.id}
-                      >
-                        <a href="">{item.title}</a>
-                      </li>
+                        <li
+                            className="border border-[#ececec] p-[10px]"
+                            key={item.id}
+                        >
+                          <Link
+                              to={`/posts/${item.id}`}
+                              className="news-link"
+                          >
+                            {item.title}
+                          </Link>
+                        </li>
                     ))}
                   </ul>
                 </div>
