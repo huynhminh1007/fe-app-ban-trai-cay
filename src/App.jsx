@@ -7,7 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartPage from "./components/CartPage";
 import ProductDetailPage from "./Pages/ProductDetailPage";
 import CheckoutPage from "./components/CheckoutPage";
+import PostDetail from "./pages/PostDetail";
 import ProductListPage from "./components/ProductListPage";
+import PostDetail from "./pages/PostDetail";
 
 function App() {
   return (
@@ -17,7 +19,10 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/posts/:id" element={<PostDetail />} />
+
         <Route path="/products" element={<ProductListPage />} />
+        <Route path="/posts/:id" element={<PostDetail />} />
       </Routes>
     </BrowserRouter>
   );
