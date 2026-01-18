@@ -4,6 +4,7 @@ import mainBanner1 from "../res/imgs/main_banner_1.jpg";
 import mainBanner2 from "../res/imgs/main_banner_2.jpg";
 import mainBanner3 from "../res/imgs/main_banner_3.jpg";
 import { getCategoryForMenu } from "../fakeApi/categoryApi";
+import { Link } from "react-router-dom";
 
 const BANNERS = [mainBanner1, mainBanner2, mainBanner3];
 
@@ -44,7 +45,7 @@ export default function CategorySection({ className = "", onHoverChange }) {
 
   const goToPrevBanner = () =>
     setCurrentBannerIndex(
-      (prev) => (prev - 1 + BANNERS.length) % BANNERS.length
+      (prev) => (prev - 1 + BANNERS.length) % BANNERS.length,
     );
 
   const goToBanner = (index) => setCurrentBannerIndex(index);
@@ -63,23 +64,25 @@ export default function CategorySection({ className = "", onHoverChange }) {
         <nav className="category-section__left">
           <ul>
             {categories.map((cat) => (
-              <li
-                key={cat.id}
-                className="category-section__item"
-                onMouseEnter={() => {
-                  setActiveId(cat.id);
-                  if (cat.subs) setIsHoveringCategory(true);
-                }}
-              >
-                <div className="category-section__content">
-                  <i className="fa-solid fa-apple-whole" />
-                  <span>{cat.label}</span>
-                </div>
+              <Link to={`/products?category=${cat.id}`}>
+                <li
+                  key={cat.id}
+                  className="category-section__item"
+                  onMouseEnter={() => {
+                    setActiveId(cat.id);
+                    if (cat.subs) setIsHoveringCategory(true);
+                  }}
+                >
+                  <div className="category-section__content">
+                    <i className="fa-solid fa-apple-whole" />
+                    <span>{cat.label}</span>
+                  </div>
 
-                {cat.subs && (
-                  <i className="fa-solid fa-chevron-right category-section__arrow" />
-                )}
-              </li>
+                  {cat.subs && (
+                    <i className="fa-solid fa-chevron-right category-section__arrow" />
+                  )}
+                </li>
+              </Link>
             ))}
           </ul>
         </nav>
@@ -90,19 +93,31 @@ export default function CategorySection({ className = "", onHoverChange }) {
             <div className="category-section__subs h-full">
               {activeCategory.subs.map((group) => (
                 <div key={group.id} className="flex flex-col items-start">
-                  <a href="" className="font-bold text-sm mb-2">
+                  <Link
+                    className="font-bold text-sm mb-2"
+                    to={`/products?category=${group.id}`}
+                  >
                     {group.label}
-                  </a>
+                  </Link>
 
-                  {group.children?.length > 0 && (
+                  {group.subs?.length > 0 && (
                     <ul className="flex flex-col gap-1 w-full">
-                      {group.children.map((item, i) => (
-                        <li key={i}>
-                          <a href="" className="text-sm font-normal">
-                            {item}
-                          </a>
-                        </li>
-                      ))}
+                      {group.subs.map((lv3) =>
+                        lv3.id === "__more__" ? (
+                          <li key="more" className="text-xs text-gray-400">
+                            ...
+                          </li>
+                        ) : (
+                          <li key={lv3.id}>
+                            <Link
+                              to={`/products?category=${lv3.id}`}
+                              className="text-sm font-normal hover:text-primary"
+                            >
+                              {lv3.label}
+                            </Link>
+                          </li>
+                        ),
+                      )}
                     </ul>
                   )}
                 </div>

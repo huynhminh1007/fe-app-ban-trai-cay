@@ -3,6 +3,7 @@ import ProductLink from "./navigation/ProductLink";
 import { formatVND } from "./utils/Format";
 import { updateQuantity } from "../fakeApi/cartApi";
 import { showAddToCartToast, showCartErrorToast } from "./utils/Dialog";
+import { Link } from "react-router-dom";
 
 const gridCols = {
   1: "grid-cols-1",
@@ -20,21 +21,24 @@ const mdGridCols = {
 
 export default function ProductListSection({
   className = "",
-  title,
+  title = null,
   products = [],
   cols = {
     base: 2,
     md: 4,
   },
+  categoryId,
 }) {
   return (
     <section className={`product-list-section section-container ${className}`}>
       <div className="container product-list-section__inner md:rounded-lg py-4">
-        <div className="heading-bar">
-          <h2 className="title text-xl">
-            <a href="">{title}</a>
-          </h2>
-        </div>
+        {title && (
+          <div className="heading-bar">
+            <h2 className="title text-xl">
+              <Link to={`/products?category=${categoryId}`}>{title}</Link>
+            </h2>
+          </div>
+        )}
 
         <div
           className={`product-list mt-5 grid gap-4 md:gap-6 ${
@@ -55,7 +59,7 @@ export default function ProductListSection({
                   {p.on_sale && (
                     <span className="product-card__badge">
                       {`-${Math.round(
-                        ((regularPrice - salePrice) / regularPrice) * 100
+                        ((regularPrice - salePrice) / regularPrice) * 100,
                       )}%`}
                     </span>
                   )}
@@ -78,7 +82,7 @@ export default function ProductListSection({
                           showAddToCartToast();
                         } catch (err) {
                           showCartErrorToast(
-                            "Không thể thêm sản phẩm vào giỏ hàng"
+                            "Không thể thêm sản phẩm vào giỏ hàng",
                           );
                         }
                       }}
@@ -122,10 +126,13 @@ export default function ProductListSection({
         </div>
 
         <div className="flex justify-center mt-6 mb-2">
-          <a className="product-list-section__see-more">
+          <Link
+            to={`/products?category=${categoryId}`}
+            className="product-list-section__see-more"
+          >
             Xem tất cả
             <i className="fas fa-chevron-right ml-1"></i>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
