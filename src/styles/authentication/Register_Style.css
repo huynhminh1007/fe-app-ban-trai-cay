@@ -139,12 +139,32 @@ form{
     display: flex;
     justify-content: center;
 }
-.social-icon a{
+.social-icon a {
     display: inline-flex;
-    padding: 10px;
+    justify-content: center; 
+    align-items: center;    
+    width: 40px;             
+    height: 40px;
     margin: 0 8px;
-    border: 1px solid black;
-    border-radius: 50px;
+    border: 1px solid #333; 
+    border-radius: 50%;      
+    color: #333;             
+    text-decoration: none;
+    transition: all 0.3s ease; 
+}
+
+.social-icon .google:hover {
+    color: #d63030;         
+    border-color: #d63030;   
+    transform: scale(1.1);   
+    background-color: #fff0f0; 
+}
+
+.social-icon .facebook:hover {
+    color: #6e87f5;         
+    border-color: #6e87f5;   
+    transform: scale(1.1);   
+    background-color: #f0f4ff; 
 }
 
 .toggle-box{
@@ -184,6 +204,7 @@ form{
     left: 0;
     transition-delay: 1s;
 }
+
 .auth-container.active .toggle-box-panel.left{
     left: -50%;
     transition-delay: 0.6s;
@@ -198,9 +219,12 @@ form{
     transition-delay: 1s;
 }
 
-.toggle-box-panel p{
-    margin-bottom: 20px;
+
+.toggle-box-panel.right p{
+    margin: 0 0 20px 100px;
 }
+
+
 
 .toggle-box-panel .btn{
     width: 160px;
@@ -208,5 +232,14 @@ form{
     background: transparent;
     border: 1px solid #fff;
     box-shadow: none;
+}
+
+.toggle-box-panel.right .btn{
+    width: 160px;
+    height: 46px;
+    background: transparent;
+    border: 1px solid #fff;
+    box-shadow: none;
+    margin-left: 100px;
 }
 

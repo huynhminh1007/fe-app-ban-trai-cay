@@ -1,7 +1,7 @@
 import '../../styles/authentication/Register_Style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FaGoogle, FaFacebook } from "react-icons/fa";
-import { faUser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEye, faEyeSlash, faPhone, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'; //hook
 
@@ -16,6 +16,9 @@ function Register() {
     // State cho Login
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
+
+    const [regDob, setRegDob] = useState('');    
+    const [regPhone, setRegPhone] = useState(''); 
 
     // show password
     const [showLoginPassword, setShowLoginPassword] = useState(false);
@@ -33,21 +36,20 @@ function Register() {
     const handleRegisterSubmit = (e) => {
         e.preventDefault(); // ko load lại trang
 
-        if (!regEmail || !regPassword) {
-            alert("Vui lòng nhập đầy đủ thông tin!");
+        if (!regEmail || !regPassword || !regDob || !regPhone) {
+            alert("Vui lòng nhập đầy đủ thông tin: Email, Mật khẩu, Ngày sinh và SĐT!");
             return;
         }
 
-        // Tạo user
         const user = {
             email: regEmail,
-            password: regPassword
+            password: regPassword,
+            dob: regDob,
+            phone: regPhone
         };
 
         // Lưu vào LocalStorage (chuyển sang JSON)
         localStorage.setItem('userAccount', JSON.stringify(user));
-
-        alert("Đăng ký thành công! Vui lòng đăng nhập.");
 
         // Chuyển sang form Login và xóa input
         setIsActive(false);
@@ -107,16 +109,16 @@ function Register() {
                         </div>
 
                         <div className='forget-pass'>
-                            <Link to="/reset-password">Forget Password</Link>
+                            <Link to="/reset-password">Quên mật khẩu ?</Link>
                         </div>
 
                         <button type='submit' className='btn'>Login</button>
 
-                        <p>Or login with social platform</p>
+                        <p>Hoặc đăng nhập với mạng xã hội</p>
 
                         <div className='social-icon'>
-                            <a href='#'> <i><FaGoogle /></i> </a>
-                            <a href='#'> <i><FaFacebook /></i> </a>
+                            <a href='#'> <i className='google'><FaGoogle /></i> </a>
+                            <a href='#'> <i className='facebook'><FaFacebook /></i> </a>
                         </div>
                     </form>
                 </div>
@@ -135,6 +137,7 @@ function Register() {
                             />
                             <i><FontAwesomeIcon icon={faUser} /></i>
                         </div>
+
                         <div className='input-box'>
                             <input
                                 type={showRegisterPassword ? 'text' : 'password'}
@@ -148,27 +151,52 @@ function Register() {
                             </i>
                         </div>
 
-                        <button type='submit' className='btn'>Register</button>
+                        <div className='input-box'>
+                            <input
+                                type='date'
+                                required
+                                value={regDob}
+                                onChange={(e) => setRegDob(e.target.value)}
+                                style={{ color: regDob ? '#333' : '#888' }} 
+                            />
+                            {/* Icon lịch và tùy chỉnh lịch */}
+                            <i style={{ pointerEvents: 'none' }}><FontAwesomeIcon icon={faCalendar} /></i>
+                        </div>
 
-                        <p>Or register with social platform</p>
+                        <div className='input-box'>
+                            <input
+                                type='tel'
+                                placeholder='Phone Number'
+                                required
+                                pattern="[0-9]{10}" 
+                                title="Vui lòng nhập 10 chữ số"
+                                value={regPhone}
+                                onChange={(e) => setRegPhone(e.target.value)}
+                            />
+                            <i><FontAwesomeIcon icon={faPhone} /></i>
+                        </div>
+
+                        <button type='submit' className='btn'>Đăng ký</button>
+
+                        <p>Hoặc đăng ký với mạng xã hội</p>
 
                         <div className='social-icon'>
-                            <a href='#'> <i><FaGoogle /></i> </a>
-                            <a href='#'> <i><FaFacebook /></i> </a>
+                            <a href='#'> <i className='google'><FaGoogle /></i> </a>
+                            <a href='#'> <i className='facebook'><FaFacebook /></i> </a>
                         </div>
                     </form>
                 </div>
 
                 <div className='toggle-box'>
                     <div className='toggle-box-panel left'>
-                        <h1> Hello, Welcome!</h1>
-                        <p> Don't have an account?</p>
-                        <button type="button" className='btn register-btn' onClick={handleRegisterClick}>Register</button>
+                        <h1> Hello, Chào Mừng!</h1>
+                        <p> Không có tài khoản?</p>
+                        <button type="button" className='btn register-btn' onClick={handleRegisterClick}>Đăng ký</button>
                     </div>
                     <div className='toggle-box-panel right'>
-                        <h1> Welcome Back!</h1>
-                        <p> Already have an account?</p>
-                        <button type="button" className='btn login-btn' onClick={handleLoginClick}>Login</button>
+                        <h1> Xin chào</h1>
+                        <p> Đã có tài khoản?</p>
+                        <button type="button" className='btn login-btn' onClick={handleLoginClick}>Đăng nhập</button>
                     </div>
                 </div>
             </div>

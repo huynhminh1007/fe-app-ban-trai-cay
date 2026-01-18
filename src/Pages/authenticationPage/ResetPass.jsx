@@ -1,6 +1,6 @@
 import '../../styles/authentication/ResetPass_Style.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function ResetPass() {
     const navigate = useNavigate();
@@ -25,8 +25,8 @@ function ResetPass() {
          <div className = 'formResetPass' >
             <div className='form-ResetPass'>
             <form onSubmit={handleResetSubmit}>
-                <h1>Forgot password?</h1>
-                <p>Remember your password? <a href='/'> Login here</a></p>
+                <h1>Quên mật khẩu?</h1>
+                <p>Đã nhớ mật khẩu? <Link to="/">Đăng nhập</Link></p>
 
                 <div className='input'>
                     <p>Email Address</p>
@@ -37,7 +37,7 @@ function ResetPass() {
                         value={emailInput}
                         onChange={(e) => setEmailInput(e.target.value)}
                     /> 
-                    <button type='submit' className='btn-input'>Reset password</button>
+                    <button type='submit' className='btn-input'>Đặt lại mật khẩu</button>
                 </div>
             </form>
         </div>

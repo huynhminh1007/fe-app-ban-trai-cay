@@ -2,7 +2,7 @@ import '../../styles/authentication/ConfirmPass_Style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link} from 'react-router-dom';
 
 function ConfirmPass() {
     const navigate = useNavigate();
@@ -45,8 +45,8 @@ function ConfirmPass() {
         <div className = 'formConfirmPass' >
             <div className='form-ResetPass'>
                 <form onSubmit={handleConfirmSubmit}>
-                    <h1>Confirm password</h1>
-                    <p>Remember your password? <a href='/'> Login here</a></p>
+                    <h1>Nhập lại mật khẩu</h1>
+                    <p>Đã nhớ mật khẩu? <Link to="/">Đăng nhập</Link></p>
 
                     <div className='input'>
                         <div className='input-box'>
@@ -75,7 +75,7 @@ function ConfirmPass() {
                             </i>
                         </div>
 
-                        <button type='submit' className='btn-input'>Update Password</button>
+                        <button type='submit' className='btn-input'>Cập nhật mật khẩu</button>
                     </div>
                 </form>
             </div>

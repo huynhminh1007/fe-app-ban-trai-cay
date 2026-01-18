@@ -1,3 +1,31 @@
+.desc-tabs {
+    display: flex;
+    align-items: center;
+    gap: 40px; 
+    border-bottom: 2px solid #f0f0f0; 
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    
+    font-size: 18px;
+    font-weight: 600;
+    color: #888; 
+    padding: 15px 0;
+    
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: #228f27; 
+}
+
 .desc-h1 {
     font-size: 22px;
     color: #1b5e20; 

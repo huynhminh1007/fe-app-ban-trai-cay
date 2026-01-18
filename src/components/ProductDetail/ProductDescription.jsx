@@ -79,66 +79,71 @@ function ProductDescription({ data }) {
             {/* Description */}
             <div className="tab-content">
                 {activeTab === 'description' ? (
-                    <div className="content-text">
+                    // <div className="content-text">
 
+                    //     <h1 className="desc-h1">{data.name}</h1>
+
+                    //     <div className="desc-section">
+                    //         <h2 className="desc-h2">1. Đặc điểm nổi bật</h2>
+                    //         <p>{data.description}</p>
+                    //     </div>
+
+                    //     <div className="desc-section">
+                    //         <h2 className="desc-h2">2. Kỹ thuật trồng cây</h2>
+
+                    //         <div className="desc-item">
+                    //             <p><strong>a) Thời vụ:</strong> {data.plantingTechnique.season}</p>
+                    //             <div className='desc-img'>
+                    //                 <img src={data.plantingTechnique.img1} alt="img" />
+                    //             </div>
+                    //         </div>
+                    //         <div className="desc-item">
+                    //             <p><strong>b) Lượng nước:</strong> {data.plantingTechnique.water}</p>
+                    //             <div className='desc-img'>
+                    //                 <img src={data.plantingTechnique.img1} alt="img" />
+                    //             </div>
+                    //         </div>
+                    //         <div className="desc-item">
+                    //             <p><strong>c) Đất trồng:</strong> {data.plantingTechnique.soil}</p>
+                    //             <div className='desc-img'>
+                    //                 <img src={data.plantingTechnique.img1} alt="img" />
+                    //             </div>
+                    //         </div>
+                    //         <div className="desc-item">
+                    //             <p><strong>d) Tiêu chuẩn cây giống:</strong> {data.plantingTechnique.seedling}</p>
+                    //             <div className='desc-img'>
+                    //                 <img src={data.plantingTechnique.img1} alt="img" />
+                    //             </div>
+                    //         </div>
+                    //         <div className="desc-item">
+                    //             <p><strong>e) Khoảng cách trồng:</strong> {data.plantingTechnique.spacing}</p>
+                    //         </div>
+                    //     </div>
+
+                    //     <div className="desc-section">
+                    //         <h2 className="desc-h2">3. Kỹ thuật chăm sóc</h2>
+
+                    //         <div className="desc-item">
+                    //             <p><strong>a) Bón phân:</strong> {data.careTechnique.fertilizer}</p>
+                    //             <div className='desc-img'>
+                    //                 <img src={data.careTechnique.img1} alt="img" />
+                    //             </div>
+                    //         </div>
+                    //         <div className="desc-item">
+                    //             <p><strong>b) Tưới nước:</strong> {data.careTechnique.watering}</p>
+                    //             <div className='desc-img'>
+                    //                 <img src={data.careTechnique.img1} alt="img" />
+                    //             </div>
+                    //         </div>
+                    //         <div className="desc-item">
+                    //             <p><strong>c) Phòng trừ sâu bệnh:</strong> {data.careTechnique.pestControl}</p>
+                    //         </div>
+                    //     </div>
+                    // </div>
+
+                    <div className='content-text'>
                         <h1 className="desc-h1">{data.name}</h1>
-
-                        <div className="desc-section">
-                            <h2 className="desc-h2">1. Đặc điểm nổi bật</h2>
-                            <p>{data.description}</p>
-                        </div>
-
-                        <div className="desc-section">
-                            <h2 className="desc-h2">2. Kỹ thuật trồng cây</h2>
-
-                            <div className="desc-item">
-                                <p><strong>a) Thời vụ:</strong> {data.plantingTechnique.season}</p>
-                                <div className='desc-img'>
-                                    <img src={data.plantingTechnique.img1} alt="img" />
-                                </div>
-                            </div>
-                            <div className="desc-item">
-                                <p><strong>b) Lượng nước:</strong> {data.plantingTechnique.water}</p>
-                                <div className='desc-img'>
-                                    <img src={data.plantingTechnique.img1} alt="img" />
-                                </div>
-                            </div>
-                            <div className="desc-item">
-                                <p><strong>c) Đất trồng:</strong> {data.plantingTechnique.soil}</p>
-                                <div className='desc-img'>
-                                    <img src={data.plantingTechnique.img1} alt="img" />
-                                </div>
-                            </div>
-                            <div className="desc-item">
-                                <p><strong>d) Tiêu chuẩn cây giống:</strong> {data.plantingTechnique.seedling}</p>
-                                <div className='desc-img'>
-                                    <img src={data.plantingTechnique.img1} alt="img" />
-                                </div>
-                            </div>
-                            <div className="desc-item">
-                                <p><strong>e) Khoảng cách trồng:</strong> {data.plantingTechnique.spacing}</p>
-                            </div>
-                        </div>
-
-                        <div className="desc-section">
-                            <h2 className="desc-h2">3. Kỹ thuật chăm sóc</h2>
-
-                            <div className="desc-item">
-                                <p><strong>a) Bón phân:</strong> {data.careTechnique.fertilizer}</p>
-                                <div className='desc-img'>
-                                    <img src={data.careTechnique.img1} alt="img" />
-                                </div>
-                            </div>
-                            <div className="desc-item">
-                                <p><strong>b) Tưới nước:</strong> {data.careTechnique.watering}</p>
-                                <div className='desc-img'>
-                                    <img src={data.careTechnique.img1} alt="img" />
-                                </div>
-                            </div>
-                            <div className="desc-item">
-                                <p><strong>c) Phòng trừ sâu bệnh:</strong> {data.careTechnique.pestControl}</p>
-                            </div>
-                        </div>
+                        <div dangerouslySetInnerHTML={{ __html: data.description }} />
                     </div>
                 ) : (
                     // Reviews
