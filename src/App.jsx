@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartPage from "./components/CartPage";
 import ProductDetailPage from "./Pages/ProductDetailPage";
 import CheckoutPage from "./components/CheckoutPage";
-import PostDetail from "./pages/PostDetail";
+import PostDetail from "./Pages/PostDetail";
 import ProductListPage from "./components/ProductListPage";
 
 function App() {
