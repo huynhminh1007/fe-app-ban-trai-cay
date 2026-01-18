@@ -7,19 +7,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartPage from "./components/CartPage";
 import ProductDetailPage from "./Pages/ProductDetailPage";
 import CheckoutPage from "./components/CheckoutPage";
+import ProductListPage from "./components/ProductListPage";
 
 function App() {
   return (
-    // <>
-    //   <Home />
-    // </>
-
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/products" element={<ProductListPage />} />
       </Routes>
     </BrowserRouter>
   );
