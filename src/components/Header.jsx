@@ -3,7 +3,7 @@ import logo from "../res/imgs/banner-cong-ty-TGCG.png";
 import CircleIcon from "./utils/CircleIcon";
 import { useEffect, useState } from "react";
 import SideMenu from "./SideMenu";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import CategorySection from "./CategorySection";
 import { getCartCount } from "../fakeApi/cartApi";
 
@@ -136,15 +136,17 @@ function SubHeader() {
   const showOverlay = isHoverCategory || isHoverCategorySection;
 
   return (
-    <div
-      className="hidden md:block header__sub relative"
-      onMouseEnter={() => setIsHoverCategory(true)}
-      onMouseLeave={() => setIsHoverCategory(false)}
-    >
-      <div className="container flex items-center gap-10 py-2">
-        <div className="header__item mr-10">
+    <div className="hidden md:block header__sub relative">
+      <div className="container flex items-center gap-10">
+        <div
+          className="header__item mr-10 py-2"
+          onMouseEnter={() => setIsHoverCategory(true)}
+          onMouseLeave={() => setIsHoverCategory(false)}
+        >
           <i className="fa-solid fa-bars"></i>
-          <span>Danh sách sản phẩm</span>
+          <span>
+            <Link to="/products">Danh sách sản phẩm</Link>
+          </span>
         </div>
 
         <div className="header__item">

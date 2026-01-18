@@ -1,7 +1,35 @@
 import { fetchJson } from "./apiClient";
 import { paginate } from "./paginate";
 
-function buildTree(list) {
+export async function getCategories({ page = 1, limit = 10 } = {}) {
+  const data = await fetchJson("categories.json");
+  return paginate(data, page, limit);
+}
+
+function mapForMenu(tree, maxLv2 = 6, maxLv3 = 6) {
+  return tree.map((root) => ({
+    id: root.id,
+    label: root.name,
+    icon: "fa-apple-whole",
+    subs: root.children.length
+      ? root.children.slice(0, maxLv2).map((lv2) => ({
+          id: lv2.id,
+          label: lv2.name,
+          subs: [
+            ...lv2.children.slice(0, maxLv3).map((lv3) => ({
+              id: lv3.id,
+              label: lv3.name,
+            })),
+            ...(lv2.children.length > maxLv3
+              ? [{ id: "__more__", label: "..." }]
+              : []),
+          ],
+        }))
+      : null,
+  }));
+}
+
+export function buildTree(list) {
   const map = {};
   const roots = [];
 
@@ -18,31 +46,27 @@ function buildTree(list) {
   return roots;
 }
 
-export async function getCategories({ page = 1, limit = 10 } = {}) {
-  const data = await fetchJson("categories.json");
-  return paginate(data, page, limit);
-}
-
-function mapForMenu(tree, maxLv2 = 6, maxLv3 = 6) {
-  return tree.map((root) => ({
-    id: root.slug,
-    label: root.name,
-    icon: "fa-apple-whole",
-    subs: root.children.length
-      ? root.children.slice(0, maxLv2).map((lv2) => ({
-          id: lv2.slug,
-          label: lv2.name,
-          children: [
-            ...lv2.children.slice(0, maxLv3).map((lv3) => lv3.name),
-            ...(lv2.children.length > maxLv3 ? ["..."] : []),
-          ],
-        }))
-      : null,
-  }));
-}
-
 export async function getCategoryForMenu() {
   const data = await fetchJson("categories.json");
   const tree = buildTree(data);
   return mapForMenu(tree);
+}
+
+export function buildCategoryTree(categories) {
+  const map = {};
+  const roots = [];
+
+  categories.forEach((cat) => {
+    map[cat.id] = { ...cat, children: [] };
+  });
+
+  categories.forEach((cat) => {
+    if (cat.parent === 0) {
+      roots.push(map[cat.id]);
+    } else if (map[cat.parent]) {
+      map[cat.parent].children.push(map[cat.id]);
+    }
+  });
+
+  return roots;
 }

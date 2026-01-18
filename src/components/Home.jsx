@@ -32,7 +32,7 @@ export default function Home() {
   useEffect(() => {
     getProducts({ onSale: true }).then((res) => setOnSaleProducts(res.data));
     getProducts({ orderBy: "totalSold", limit: 8 }).then((res) =>
-      setTopSellingProducts(res.data)
+      setTopSellingProducts(res.data),
     );
     getPosts({ categoryId: 25, limit: 4 }).then((res) => setPosts(res.data));
     getPosts({ categoryId: 21, limit: 5 }).then((res) => setNewPosts(res.data));
@@ -48,6 +48,7 @@ export default function Home() {
           className="mb-[30px]"
           title="Sản phẩm bán chạy"
           products={topSellingProducts}
+          categoryId={493}
         />
 
         <section className="home-section__2 section-container mb-[30px]">
@@ -102,6 +103,7 @@ export default function Home() {
                 title="Sản phẩm đang giảm giá"
                 products={onSaleProducts}
                 cols={{ base: 2, md: 3 }}
+                categoryId={494}
               />
 
               <NewsSection

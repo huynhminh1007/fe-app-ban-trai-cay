@@ -1,37 +1,46 @@
 import { fetchJson } from "./apiClient";
 import { paginate } from "./paginate";
 
-function buildCategoryTree(products) {
+export function buildCategoryTree(categories) {
   const map = {};
+  const roots = [];
 
-  products.forEach((p) => {
-    p.categories?.forEach((c) => {
-      if (!map[c.id]) map[c.id] = [];
-      if (c.parent && c.parent !== 0) {
-        if (!map[c.parent]) map[c.parent] = [];
-        map[c.parent].push(c.id);
-      }
-    });
+  categories.forEach((c) => {
+    map[c.id] = { ...c, children: [] };
   });
 
-  return map;
+  categories.forEach((c) => {
+    if (c.parent === 0) {
+      roots.push(map[c.id]);
+    } else if (map[c.parent]) {
+      map[c.parent].children.push(map[c.id]);
+    }
+  });
+
+  return roots;
 }
 
-function getAllChildren(map, parentId) {
-  const result = new Set([parentId]);
-  const stack = [parentId];
+export function getAllChildren(tree, parentId) {
+  const ids = [];
 
-  while (stack.length) {
-    const id = stack.pop();
-    (map[id] || []).forEach((child) => {
-      if (!result.has(child)) {
-        result.add(child);
-        stack.push(child);
-      }
-    });
+  function collect(node) {
+    ids.push(node.id);
+    node.children?.forEach(collect);
   }
 
-  return Array.from(result);
+  function dfs(nodes) {
+    for (const n of nodes) {
+      if (n.id === parentId) {
+        collect(n);
+        return true;
+      }
+      if (n.children?.length && dfs(n.children)) return true;
+    }
+    return false;
+  }
+
+  dfs(tree);
+  return ids;
 }
 
 export async function getProductById(id) {
@@ -44,39 +53,56 @@ export async function getProductById(id) {
 
 export async function getProducts({
   page = 1,
-  limit = 10,
+  limit = 12,
   categoryId,
   search,
   orderBy,
   order = "desc",
+  fromPrice,
+  toPrice,
   onSale,
 } = {}) {
-  let data = await fetchJson("products.json");
-  const catTree = buildCategoryTree(data);
+  let products = await fetchJson("products.json");
+  const categories = await fetchJson("categories.json");
+
+  const categoryTree = buildCategoryTree(categories);
 
   if (categoryId) {
-    const ids = getAllChildren(catTree, Number(categoryId));
-    data = data.filter((p) => p.categories?.some((c) => ids.includes(c.id)));
+    const ids = getAllChildren(categoryTree, Number(categoryId));
+
+    products = products.filter((p) =>
+      p.categories?.some((c) => ids.includes(c.id)),
+    );
   }
 
   if (onSale !== undefined) {
-    data = data.filter((p) => p.on_sale === onSale);
+    products = products.filter((p) => p.on_sale === onSale);
   }
 
   if (search) {
     const key = search.toLowerCase();
 
-    data = data.filter(
+    products = products.filter(
       (p) =>
         p.name?.toLowerCase().includes(key) ||
-        p.categories?.some((c) => c.name.toLowerCase().includes(key)) ||
-        p.tags?.some((t) => t.name.toLowerCase().includes(key))
+        p.categories?.some((c) => c.name?.toLowerCase().includes(key)) ||
+        p.tags?.some((t) => t.name?.toLowerCase().includes(key)),
     );
   }
 
+  if (typeof fromPrice === "number" || typeof toPrice === "number") {
+    products = products.filter((p) => {
+      const price = Number(p.prices?.price || 0);
+      if (typeof fromPrice === "number" && price < fromPrice) return false;
+      if (typeof toPrice === "number" && price > toPrice) return false;
+      return true;
+    });
+  }
+
   if (orderBy) {
-    data.sort((a, b) => {
-      let A, B;
+    products.sort((a, b) => {
+      let A = 0;
+      let B = 0;
 
       switch (orderBy) {
         case "price":
@@ -108,5 +134,5 @@ export async function getProducts({
     });
   }
 
-  return paginate(data, page, limit);
+  return paginate(products, page, limit);
 }
