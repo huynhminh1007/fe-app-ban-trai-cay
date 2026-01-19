@@ -3,19 +3,31 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { getCart } from "../fakeApi/cartApi";
 import { formatVND } from "./utils/Format";
-
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export default function CheckoutPage() {
+  const navigate = useNavigate();
+  const handleOrder = () => {navigate("/order-confirm", {state: {orderInfo, cart, totalPrice}});};
   const [showPopup, setShowPopup] = useState(false);
-  const handleOrder = () => {
-    setShowPopup(true);
-  };
+  //const handleOrder = () => {setShowPopup(true);};
   const [tinhList, setTinhList] = useState([]);
   const [quanList, setQuanList] = useState([]);
   const [selectedTinh, setSelectedTinh] = useState("");
   const [cart, setCart] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [orderInfo, setOrderInfo] = useState({
+    name: "",
+    address: "",
+    tinh: "",
+    quan: "",
+    phone: "",
+    email: "",
+    note: "",
+    shipMethod: "viettel",
+  });
+
+
   useEffect(() => {
     async function loadCart() {
       const res = await getCart("1", [
@@ -67,48 +79,73 @@ export default function CheckoutPage() {
         <Header />
       </div>
       <div className="checkout-container">
-        {/* ===== LEFT: FORM ===== */}
         <div className="checkout-left">
           <h2>Chi tiết đơn hàng</h2>
 
           <div className="form-row">
             <label>
-              {" "}
               Họ và tên <span>*</span>
             </label>
-            <input type="text" />
+            <input
+                type="text"
+                value={orderInfo.name}
+                onChange={(e) =>
+                    setOrderInfo({ ...orderInfo, name: e.target.value })
+                }
+            />
           </div>
 
           <div className="form-row">
             <label>
               Địa chỉ <span>*</span>
             </label>
-            <input type="text" />
+            <input
+                type="text"
+                value={orderInfo.address}
+                onChange={(e) =>
+                    setOrderInfo({ ...orderInfo, address: e.target.value })
+                }
+            />
           </div>
+
           <div className="form-row two-col">
             <div className="css_select_div">
               <select
-                className="css_select"
-                value={selectedTinh}
-                onChange={(e) => setSelectedTinh(e.target.value)}
+                  className="css_select"
+                  value={orderInfo.tinh}
+                  onChange={(e) => {
+                    setSelectedTinh(e.target.value); // dùng để fetch quận
+                    setOrderInfo({ ...orderInfo, tinh: e.target.options[e.target.selectedIndex].text });
+                  }}
               >
-                <option value="">Tỉnh Thành</option>
+                <option value="">Tỉnh / Thành phố</option>
                 {tinhList.map((tinh) => (
-                  <option key={tinh.id} value={tinh.id}>
-                    {tinh.full_name}
-                  </option>
+                    <option key={tinh.id} value={tinh.id}>
+                      {tinh.full_name}
+                    </option>
                 ))}
               </select>
+
             </div>
             <div className="css_select_div">
-              <select className="css_select">
-                <option value="">Phường Xã</option>
+              <select
+                  className="css_select"
+                  value={orderInfo.quan}
+                  onChange={(e) =>
+                      setOrderInfo({
+                        ...orderInfo,
+                        quan: e.target.options[e.target.selectedIndex].text,
+                      })
+                  }
+              >
+                <option value="">Quận / Huyện</option>
                 {quanList.map((quan) => (
-                  <option key={quan.id} value={quan.id}>
-                    {quan.full_name}
-                  </option>
+                    <option key={quan.id} value={quan.id}>
+                      {quan.full_name}
+                    </option>
                 ))}
               </select>
+
             </div>
           </div>
 
@@ -116,18 +153,36 @@ export default function CheckoutPage() {
             <label>
               Số điện thoại <span>*</span>
             </label>
-            <input type="text" />
+            <input
+                type="text"
+                value={orderInfo.phone}
+                onChange={(e) =>
+                    setOrderInfo({ ...orderInfo, phone: e.target.value })
+                }
+            />
           </div>
 
           <div className="form-row">
             <label>Email (tùy chọn)</label>
-            <input type="email" />
+            <input
+                type="email"
+                value={orderInfo.email}
+                onChange={(e) =>
+                    setOrderInfo({ ...orderInfo, email: e.target.value })
+                }
+            />
           </div>
 
           <h3>Thông tin bổ sung</h3>
           <div className="form-row">
             <label>Ghi chú đơn hàng (tùy chọn)</label>
-            <textarea rows="4"></textarea>
+            <textarea
+                rows="4"
+                value={orderInfo.note}
+                onChange={(e) =>
+                    setOrderInfo({ ...orderInfo, note: e.target.value })
+                }
+            />
           </div>
         </div>
 
@@ -143,19 +198,16 @@ export default function CheckoutPage() {
 
             {cart?.items?.map((item) => {
               const { product, quantity } = item;
-              const thumbnail = product.images[0].src;
-              const price = product.prices.price;
-
               return (
-                <div className="order-item" key={product.id}>
-                  <div className="order-product">
-                    <img src={thumbnail} alt={product.name} />
-                    <span>
-                      {product.name} × {quantity}
-                    </span>
+                  <div className="order-item" key={product.id}>
+                    <div className="order-product">
+                      <img src={product.images[0].src} alt={product.name} />
+                      <span>
+                {product.name} × {quantity}
+              </span>
+                    </div>
+                    <span>{formatVND(product.prices.price * quantity)}</span>
                   </div>
-                  <span>{formatVND(price * quantity)}</span>
-                </div>
               );
             })}
 
@@ -172,12 +224,26 @@ export default function CheckoutPage() {
 
           <div className="payment-method">
             <label>
-              <input type="radio" name="ship" />
+              <input
+                  type="radio"
+                  name="ship"
+                  checked={orderInfo.shipMethod === "bus"}
+                  onChange={() =>
+                      setOrderInfo({ ...orderInfo, shipMethod: "bus" })
+                  }
+              />
               Vận chuyển bằng xe khách
             </label>
 
             <label>
-              <input type="radio" name="ship" defaultChecked />
+              <input
+                  type="radio"
+                  name="ship"
+                  checked={orderInfo.shipMethod === "viettel"}
+                  onChange={() =>
+                      setOrderInfo({ ...orderInfo, shipMethod: "viettel" })
+                  }
+              />
               Vận chuyển qua Viettel Post
             </label>
           </div>
@@ -186,33 +252,6 @@ export default function CheckoutPage() {
             Đặt hàng
           </button>
         </div>
-
-        {showPopup && (
-          <div className="popup-overlay">
-            <div className="popup-content">
-              {/* Nút X đóng ở góc */}
-              <span className="close-btn" onClick={() => setShowPopup(false)}>
-                X
-              </span>
-
-              {/* 1. Tiêu đề đơn hàng thành công */}
-              <h2 className="success-title">Đơn hàng đã được đặt thành công</h2>
-
-              {/* 2. Hình ảnh chú gấu */}
-              <img
-                src={require("../res/imgs/order_success2.png")}
-                alt="Success"
-                className="popup-image"
-              />
-
-              {/* 3. Lời cảm ơn và thông báo giao hàng */}
-              <div className="success-message">
-                <p>Cảm ơn bạn đã đặt hàng</p>
-                <p>chúng tớ sẽ cố gắng giao sớm nhất có thể ạ</p>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
       <div className="page-with-footer">
         <Footer />
