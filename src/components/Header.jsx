@@ -6,6 +6,8 @@ import SideMenu from "./SideMenu";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import CategorySection from "./CategorySection";
 import { getCartCount } from "../fakeApi/cartApi";
+import { getProducts } from "../fakeApi/productApi";
+import { formatVND } from "./utils/Format";
 
 export default function Header() {
   return (
@@ -32,6 +34,10 @@ function TopHeader() {
 function MainHeader() {
   const [cartCount, setCartCount] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [products, setProducts] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen((open) => !open);
 
@@ -40,6 +46,26 @@ function MainHeader() {
   useEffect(() => {
     setCartCount(getCartCount("1"));
   });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search.trim());
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, [search]);
+
+  useEffect(() => {
+    if (!debouncedSearch) {
+      setProducts([]);
+      return;
+    }
+
+    getProducts({ search: debouncedSearch, limit: 10 }).then((res) => {
+      setProducts(res.data);
+      setShowDropdown(true);
+    });
+  }, [debouncedSearch]);
 
   return (
     <header className="header__main">
@@ -54,25 +80,62 @@ function MainHeader() {
             <i className="fa-solid fa-bars" />
           </span>
 
-          <form
-            action=""
-            role="search"
-            className="header__search md:mr-3 flex-1"
-          >
-            <input
-              type="text"
-              placeholder="Tìm kiếm sản phẩm..."
-              className="input-search"
-            />
+          <div className="relative flex-1">
+            <form
+              action=""
+              role="search"
+              className="header__search"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <input
+                type="text"
+                placeholder="Tìm kiếm sản phẩm..."
+                className="input-search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                onFocus={() => search && setShowDropdown(true)}
+                onBlur={() => setTimeout(() => setShowDropdown(false), 150)}
+              />
 
-            <button type="submit" className="search-btn" aria-label="Tìm kiếm">
-              <i className="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
+              <button
+                type="submit"
+                className="search-btn"
+                aria-label="Tìm kiếm"
+              >
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </form>
+            {showDropdown && debouncedSearch && products.length === 0 && (
+              <ul className="search-list">
+                <li>Không tìm thấy sản phẩm</li>
+              </ul>
+            )}
+
+            {showDropdown && products.length > 0 && (
+              <ul className="search-list">
+                {products.map((p) => {
+                  return (
+                    <li
+                      key={p.id}
+                      className="px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                      onMouseDown={() => {
+                        setShowDropdown(false);
+                        navigate(
+                          `/products?search=${encodeURIComponent(p.name)}`,
+                        );
+                      }}
+                    >
+                      <div className="search-product-card flex">{p.name}</div>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
         </div>
 
         {/* Khối thông tin – ẩn trên mobile, hiện từ md trở lên */}
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-6 md:flex md:ml-3">
           <div className="header__item">
             <CircleIcon className="header__icon">
               <i className="fa-solid fa-phone"></i>
