@@ -4,13 +4,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { formatVND } from "./utils/Format";
 import { updateQuantity, getCart } from "../fakeApi/cartApi";
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 66d9c5bc81c6e7b60f6baf9dbdc14d9332fcc0a2
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   const [cart, setCart] = useState();
@@ -29,7 +24,7 @@ const CartPage = () => {
 
     const total = res.items.reduce(
       (sum, i) => sum + Number(i.product.prices.price) * i.quantity,
-      0
+      0,
     );
     setTotalPrice(total);
 
@@ -109,39 +104,9 @@ const CartPage = () => {
                     <button onClick={() => increaseQty(product.id)}>+</button>
                   </div>
 
-<<<<<<< HEAD
                   <div className="subtotal">
                     {formatVND(prices.price * item.quantity)}
                   </div>
-=======
-                        <div className="cart-actions">
-                            <button className="btn btn-green">
-                                Tiếp tục mua hàng
-                            </button>
-                            <button className="btn">
-                                Cập nhật giỏ hàng
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* RIGHT: SUMMARY */}
-                    <div className="cart-summary">
-                        <h3>Tổng giỏ hàng</h3>
-
-                        <div className="summary-row">
-                            <span>Tạm tính</span>
-                            <span>{formatPrice(totalPrice)}</span>
-                        </div>
-
-                        <div className="summary-row total">
-                            <span>Tổng đơn hàng</span>
-                            <span>{formatPrice(totalPrice)}</span>
-                        </div>
-
-                        <button className="checkout" onClick={() => navigate("/checkout", {
-                                    state: {cart, totalPrice,},})}> Thanh toán </button>
-                    </div>
->>>>>>> 26fe22c (create checkoutPage)
                 </div>
               );
             })}
@@ -165,7 +130,9 @@ const CartPage = () => {
               <span>Tổng đơn hàng</span>
               <span>{formatVND(totalPrice)}</span>
             </div>
-            <button className="checkout" onClick={() => navigate("/checkout")}>Thanh toán </button>
+            <button className="checkout" onClick={() => navigate("/checkout")}>
+              Thanh toán{" "}
+            </button>
           </div>
         </div>
       </div>
