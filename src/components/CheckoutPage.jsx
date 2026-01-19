@@ -74,6 +74,7 @@ export default function CheckoutPage() {
                 <div className="checkout-left">
                     <h2>Chi tiết đơn hàng</h2>
 
+<<<<<<< HEAD
                     <div className="form-row two-col">
                         <div>
                             <label>Tên <span>*</span></label>
@@ -83,12 +84,18 @@ export default function CheckoutPage() {
                             <label>Họ (tùy chọn)</label>
                             <input type="text"/>
                         </div>
+=======
+                    <div className="form-row">
+                        <label> Họ và tên <span>*</span></label>
+                        <input type="text"/>
+>>>>>>> 66d9c5b (fix ui)
                     </div>
 
                     <div className="form-row">
                         <label>Địa chỉ <span>*</span></label>
                         <input type="text"/>
                     </div>
+                    <div className="form-row two-col">
                     <div className="css_select_div">
                         <select
                             className="css_select"
@@ -113,7 +120,7 @@ export default function CheckoutPage() {
                             ))}
                         </select>
                         </div>
-
+                    </div>
 
                     <div className="form-row">
                         <label>Số điện thoại <span>*</span></label>
