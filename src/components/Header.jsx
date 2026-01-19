@@ -31,6 +31,8 @@ function TopHeader() {
   );
 }
 
+
+
 function MainHeader() {
   const [cartCount, setCartCount] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,9 +41,27 @@ function MainHeader() {
   const [products, setProducts] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
 
+  const [checkUserLogin, setCheckUserLogin] = useState(false);
+
   const toggleMenu = () => setIsMenuOpen((open) => !open);
 
   const navigate = useNavigate();
+
+  // Check user login
+  useEffect(() => {
+    const userLogin = JSON.parse(localStorage.getItem("currentUser"));
+    if(userLogin){
+      setCheckUserLogin(true);
+    }else{
+      setCheckUserLogin(false);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
+    setCheckUserLogin(false);
+    navigate("/");
+  }
 
   useEffect(() => {
     setCartCount(getCartCount("1"));
@@ -155,7 +175,13 @@ function MainHeader() {
             <div>
               <div className="header__item-title">Tài khoản</div>
               <div className="header__link">
-                <a href="">Đăng nhập</a>
+                {checkUserLogin ? (
+                  <Link to="/login" onClick={handleLogout}>
+                    Đăng xuất
+                  </Link>
+                ) : (
+                  <Link to="/login">Đăng nhập</Link>
+                )}
               </div>
             </div>
           </div>

@@ -12,10 +12,20 @@ import ProductListPage from "./components/ProductListPage";
 import PostListPage from "./components/PostListPage";
 import OrderConfirmPage from "./components/OrderConfirmPage";
 
+import Register from "./Pages/authenticationPage/Register";
+import ResetPass from "./Pages/authenticationPage/ResetPass";
+import ConfirmPass from "./Pages/authenticationPage/ConfirmPass";
+import OTPConfirm from "./Pages/authenticationPage/OTPConfirm";
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/login" element={<Register />} />
+        <Route path="/reset-password" element={<ResetPass />} />
+        <Route path="/confirm-password" element={<ConfirmPass />} />
+        <Route path="/otp-confirm" element={<OTPConfirm />} />
+
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/products/:id" element={<ProductDetailPage />} />
