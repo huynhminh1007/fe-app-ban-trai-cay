@@ -19,6 +19,7 @@ function App() {
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/products" element={<ProductListPage />} />
+          <Route path="/xacminh" element={<CheckoutPage />} />
       </Routes>
     </BrowserRouter>
   );
