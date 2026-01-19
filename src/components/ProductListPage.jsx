@@ -132,7 +132,7 @@ export default function ProductListPage() {
 function formatVND(value) {
   if (!value) return "";
 
-  const number = value.toString().replace(/\D/g, ""); // chỉ giữ số
+  const number = value.toString().replace(/\D/g, "");
 
   if (!number) return "";
 
@@ -173,7 +173,6 @@ function CategoryItem({ category, activePath, onChangeCategory }) {
   return (
     <li className="category-item">
       <div className="category-row">
-        {/* CLICK TEXT → FILTER */}
         <span
           className={inActivePath ? "cat-active" : ""}
           onClick={() => {
@@ -185,7 +184,6 @@ function CategoryItem({ category, activePath, onChangeCategory }) {
           {category.name}
         </span>
 
-        {/* CLICK ARROW → TOGGLE */}
         {hasChild && (
           <ChevronDown
             size={16}
@@ -247,7 +245,6 @@ const mdGridCols = {
 function ProductList({
   categoryId,
   selectedCategory,
-  search,
   fromPrice,
   toPrice,
   limit = 12,
@@ -260,6 +257,8 @@ function ProductList({
   const [searchParams, setSearchParams] = useSearchParams();
 
   const sort = searchParams.get("sort") || "popular";
+  const search = searchParams.get("search");
+
   const page = Number(searchParams.get("page")) || 1;
 
   const sortConfig = useMemo(() => {
@@ -292,6 +291,7 @@ function ProductList({
       page,
       limit,
       categoryId,
+      search,
       fromPrice: from,
       toPrice: to,
       orderBy: sortConfig.orderBy,
