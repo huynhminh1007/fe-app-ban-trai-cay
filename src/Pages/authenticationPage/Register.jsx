@@ -4,6 +4,7 @@ import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { faUser, faEye, faEyeSlash, faPhone, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'; //hook
+import DatePicker from 'react-datepicker';
 
 function Register() {
     const navigate = useNavigate(); // tạo hook
@@ -17,8 +18,8 @@ function Register() {
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
 
-    const [regDob, setRegDob] = useState('');    
-    const [regPhone, setRegPhone] = useState(''); 
+    const [regDob, setRegDob] = useState(null); // state lịch
+    const [regPhone, setRegPhone] = useState(''); // state SĐT
 
     // show password
     const [showLoginPassword, setShowLoginPassword] = useState(false);
@@ -32,9 +33,11 @@ function Register() {
     const toggleLoginPasswordVisibility = () => setShowLoginPassword(!showLoginPassword);
     const toggleRegisterPasswordVisibility = () => setShowRegisterPassword(!showRegisterPassword);
 
-    // Logic đăng ký để lưu thông tin vào LocalStorage
+    // Logic đăng ký 
     const handleRegisterSubmit = (e) => {
         e.preventDefault(); // ko load lại trang
+
+        const formattedDate = regDob ? regDob.toLocaleDateString('en-GB') : '';
 
         if (!regEmail || !regPassword || !regDob || !regPhone) {
             alert("Vui lòng nhập đầy đủ thông tin: Email, Mật khẩu, Ngày sinh và SĐT!");
@@ -44,7 +47,7 @@ function Register() {
         const user = {
             email: regEmail,
             password: regPassword,
-            dob: regDob,
+            dob: formattedDate,
             phone: regPhone
         };
 
@@ -55,6 +58,8 @@ function Register() {
         setIsActive(false);
         setRegEmail('');
         setRegPassword('');
+
+        navigate('/otp-confirm');
     };
 
     // Logic đăng nhập
@@ -152,15 +157,16 @@ function Register() {
                         </div>
 
                         <div className='input-box'>
-                            <input
-                                type='date'
+                            <DatePicker
+                                selected={regDob}
+                                onChange={(date) => setRegDob(date)}
+                                dateFormat="dd/MM/yyyy"
+                                placeholderText="dd/mm/yyyy"
+                                className="custom-datepicker"
+                                open={false}
                                 required
-                                value={regDob}
-                                onChange={(e) => setRegDob(e.target.value)}
-                                style={{ color: regDob ? '#333' : '#888' }} 
                             />
-                            {/* Icon lịch và tùy chỉnh lịch */}
-                            <i style={{ pointerEvents: 'none' }}><FontAwesomeIcon icon={faCalendar} /></i>
+                            <i style={{ pointerEvents: 'none', zIndex: 10 }}><FontAwesomeIcon icon={faCalendar} /></i>
                         </div>
 
                         <div className='input-box'>
@@ -168,7 +174,7 @@ function Register() {
                                 type='tel'
                                 placeholder='Phone Number'
                                 required
-                                pattern="[0-9]{10}" 
+                                pattern="[0-9]{10}"
                                 title="Vui lòng nhập 10 chữ số"
                                 value={regPhone}
                                 onChange={(e) => setRegPhone(e.target.value)}
@@ -176,7 +182,9 @@ function Register() {
                             <i><FontAwesomeIcon icon={faPhone} /></i>
                         </div>
 
-                        <button type='submit' className='btn'>Đăng ký</button>
+                        <button type='submit' className='btn'>
+                            Đăng ký
+                        </button>
 
                         <p>Hoặc đăng ký với mạng xã hội</p>
 

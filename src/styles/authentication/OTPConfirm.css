@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.otpContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(90deg, #d4d4f7, #8b95f5);
+}
+
+.form-OTP {
+    width: 460px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+}
+
+.otp-display-box {
+    background-color: #f9f9f9;
+    border: 1px dashed #6e87f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.otp-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px !important; 
+}
+
+.highlight-otp {
+    font-size: 20px;
+    font-weight: 800;
+    color: #6e87f5; 
+    letter-spacing: 2px;
+}
+
+.timer-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px !important;
+}
+
+.highlight-timer {
+    color: #e63946; 
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.note-text {
+    font-size: 12px !important;
+    color: #888 !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+}
+
+.form-OTP h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.form-OTP p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.form-OTP .input-group {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.form-OTP input[type='text'] {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 24px;       
+    font-weight: bold;
+    letter-spacing: 10px;  
+    text-align: center;    
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-OTP input[type='text']:focus {
+    border-color: #6e87f5; 
+}
+
+.form-OTP .btn-otp {
+    width: 100%;
+    height: 48px;
+    background: #4a90e2; 
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-OTP .btn-otp:hover {
+    background: #3a7bc8;
+}

@@ -243,3 +243,35 @@ form{
     margin-left: 100px;
 }
 
+.custom-datepicker {
+    width: 100%;
+    padding: 13px 50px 13px 20px; /* Padding giống hệt .input-box input cũ */
+    border-radius: 8px;
+    background: #eee;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Chỉnh lại wrapper của thư viện để nó full chiều rộng */
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+/* (Tùy chọn) Chỉnh màu header của lịch cho hợp tông màu xanh của bạn */
+.react-datepicker__header {
+    background-color: #6e87f5 !important;
+    border-bottom: 1px solid #6e87f5 !important;
+}
+
+.react-datepicker__current-month, 
+.react-datepicker__day-name {
+    color: white !important;
+}
+
+.react-datepicker__day--selected {
+    background-color: #6e87f5 !important;
+}
