@@ -163,7 +163,6 @@
   justify-content: center; // Căn giữa theo chiều ngang
   align-items: center; // Căn giữa theo chiều dọc
   z-index: 9999; // Đảm bảo luôn nằm trên các thành phần khác
-}
 
 .popup-content {
   background-color: #b2c598;
@@ -171,12 +170,10 @@
   border-radius: 20px;
   position: relative;
   width: 600px;
-  height: 500px;
+  overflow-y: auto;
   max-width: 90%;
   text-align: center;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-
-
   .close-btn {
     position: absolute;
     top: 15px;
@@ -213,6 +210,22 @@
       font-weight: bold;
       color: #000;
       line-height: 1.5;
+    }
+  }
+    .back_home {
+      margin-top: 20px;
+      padding: 12px 28px;
+      background-color: #256528;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #1e5221;
+      }
     }
   }
 }

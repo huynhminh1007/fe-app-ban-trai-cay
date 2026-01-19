@@ -1,6 +1,7 @@
 import "../styles/orderConfirm.scss";
 import Header from "./Header";
 import Footer from "./Footer";
+
 import { useLocation, useNavigate } from "react-router-dom";
 import { formatVND } from "./utils/Format";
 import {useState} from "react";
@@ -10,10 +11,8 @@ export default function OrderConfirmPage() {
     const navigate = useNavigate();
     const [showPopup, setShowPopup] = useState(false);
     const handleOrder = () => {setShowPopup(true);};
-    if (!state) {
-        navigate("/");
-        return null;
-    }
+
+    if (!state) { navigate("/");return null; }
 
     const { orderInfo, cart, totalPrice } = state;
 
@@ -70,17 +69,9 @@ export default function OrderConfirmPage() {
 
                 {/* ===== ACTION ===== */}
                 <div className="confirm-action">
-                    <button
-                        className="btn-back"
-                        onClick={() => navigate(-1)}
-                    >
-                        Quay lại chỉnh sửa
-                    </button>
+                    <button className="btn-back" onClick={() => navigate(-1)}>Quay lại chỉnh sửa </button>
 
-                    <button className="btn-confirm" onClick={handleOrder}>
-                        Xác nhận đặt hàng
-                    </button>
-                </div>
+                    <button className="btn-confirm" onClick={handleOrder}>Xác nhận đặt hàng </button></div>
 
                 {showPopup && (
                     <div className="popup-overlay">
@@ -105,6 +96,8 @@ export default function OrderConfirmPage() {
                                 <p>Cảm ơn bạn đã đặt hàng</p>
                                 <p>chúng tớ sẽ cố gắng giao sớm nhất có thể ạ</p>
                             </div>
+                            <div><button className="back_home" onClick={() => navigate("/")}>Quay về trang chủ</button></div>
+
                         </div>
                     </div>
                 )}
