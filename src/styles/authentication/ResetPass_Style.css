@@ -1,4 +1,4 @@
-*{
+* {
     font-family: 'Poppins' sans-serif;
     margin: 0;
     padding: 0;
@@ -7,22 +7,22 @@
     list-style: none;
 }
 
-.formResetPass{
+.formResetPass {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     width: 100vw;
-    background-color: linear-gradient(90deg #d4d4f7, #8b95f5);
+    background: linear-gradient(to right, #56ab2f, #a8e063);
 }
 
 .form-ResetPass {
-    width: 460px; 
+    width: 460px;
     background: #fff;
     padding: 40px;
-    border-radius: 16px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
-    font-family: 'Poppins', sans-serif; 
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
 }
 
 .form-ResetPass h1 {
@@ -31,23 +31,23 @@
     color: #333;
     text-align: center;
     margin-bottom: 10px;
-    padding-left: 0; 
+    padding-left: 0;
 }
 
-.form-ResetPass > form > p {
+.form-ResetPass>form>p {
     font-size: 15px;
     color: #666;
     text-align: center;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
 }
 
-.form-ResetPass > form > p a {
-    color: #4a90e2; 
+.form-ResetPass>form>p a {
+    color: #2e7d32;
     font-weight: 600;
     text-decoration: none;
 }
 
-.form-ResetPass > form > p a:hover {
+.form-ResetPass>form>p a:hover {
     text-decoration: underline;
 }
 
@@ -59,7 +59,7 @@
     font-size: 14px;
     font-weight: 600;
     color: #333;
-    margin-bottom: 8px; 
+    margin-bottom: 8px;
 }
 
 .form-ResetPass .input input[type='email'] {
@@ -68,14 +68,14 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     margin-bottom: 25px;
 }
 
 .form-ResetPass .btn-input {
     width: 100%;
     height: 48px;
-    background: #4a90e2; 
+    background: #2e7d32;
     border: none;
     border-radius: 8px;
     color: white;
@@ -86,7 +86,5 @@
 }
 
 .form-ResetPass .btn-input:hover {
-    background: #3a7bc8; 
+    background: #2e7d32;
 }
-
-

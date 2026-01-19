@@ -67,17 +67,19 @@ function Register() {
         e.preventDefault();
 
         // Lấy dữ liệu từ LocalStorage
-        const storedUser = JSON.parse(localStorage.getItem('userAccount'));
+        const checkLogin = JSON.parse(localStorage.getItem('userAccount'));
 
-        if (!storedUser) {
+        if (!checkLogin) {
             alert("Chưa có tài khoản nào được đăng ký!");
             return;
         }
 
         // Check thông tin
-        if (loginEmail === storedUser.email && loginPassword === storedUser.password) {
+        if (loginEmail === checkLogin.email && loginPassword === checkLogin.password) {
+            // Nhận diện người dùng đã login hay chưa
+            localStorage.setItem('UserLogin', JSON.stringify(checkLogin));
             // chuyển sang trang home
-            navigate('/home');
+            navigate('/');
         } else {
             alert("Sai email hoặc mật khẩu!");
         }

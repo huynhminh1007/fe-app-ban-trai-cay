@@ -20,12 +20,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Register />} />
+        <Route path="/login" element={<Register />} />
         <Route path="/reset-password" element={<ResetPass />} />
         <Route path="/confirm-password" element={<ConfirmPass />} />
         <Route path="/otp-confirm" element={<OTPConfirm />} />
 
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />

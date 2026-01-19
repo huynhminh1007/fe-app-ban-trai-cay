@@ -36,7 +36,6 @@ function ConfirmPass() {
             // Lưu lại vào LocalStorage
             localStorage.setItem('userAccount', JSON.stringify(storedUser));
 
-            alert("Đổi mật khẩu thành công! Hãy đăng nhập lại.");
             navigate('/'); // back về trang Login
         }
     };

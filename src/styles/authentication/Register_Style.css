@@ -11,9 +11,9 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /* background-color: linear-gradient(90deg #d4d4f7, #8b95f5); */
+    background: linear-gradient(to right, #56ab2f, #a8e063);
     width: 100vw;
-    background-color: rgb(181, 181, 243);
+    /* background-color: rgb(110, 228, 169); */
 }
 
 input[type="password"]::-ms-reveal,
@@ -126,7 +126,7 @@ form{
 .btn{
     width: 100%;
     height: 48px;
-    background: #6e87f5;
+    background: #2e7d32;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border: none;
@@ -178,7 +178,7 @@ form{
     left: -250%;
     width: 300%;
     height: 100%;
-    background: rgb(91, 141, 235);
+    background: #43a047;
     border-radius: 150px;
     z-index: 2;
     transition: 1.8s ease-in-out;

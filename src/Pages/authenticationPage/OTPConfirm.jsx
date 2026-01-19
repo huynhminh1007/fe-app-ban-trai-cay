@@ -11,7 +11,7 @@ const OTPConfirm = () => {
         const savedOTP = localStorage.getItem('currentOTP');
         const maxValue = 999999;
         const minValue = 100000;
-        return savedOTP ? savedOTP : Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue.toString();
+        return savedOTP ? savedOTP : Math.floor(Math.random() * (maxValue - minValue + 1) + minValue).toString();
     });
 
     const [timeLeft, setTimeLeft] = useState(30); // đếm ngược 30s
@@ -20,9 +20,13 @@ const OTPConfirm = () => {
     const generateNewOTP = () => {
         const maxValue = 999999;
         const minValue = 100000;
-        const newOTP = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue.toString();
+        const newOTP = Math.floor(Math.random() * (maxValue - minValue + 1) + minValue).toString();
         return newOTP;
     };
+
+    useEffect(() => {
+        localStorage.setItem('currentOTP', currentDisplayOTP);
+    }, [currentDisplayOTP]);
 
     // Tự đếm ngược và đổi mã
     useEffect(() => {
@@ -47,12 +51,16 @@ const OTPConfirm = () => {
     const handleOTPSubmit = (e) => {
         e.preventDefault();
 
-        // Lấy mã OTP đang hiện trên màn hình
-        const sentOTP = localStorage.getItem('currentOTP');
+        if (otpInput === currentDisplayOTP) {
+            const useOTP = localStorage.getItem('userAccount');
 
-        if (otpInput === sentOTP) {
+            if (useOTP) {
+                localStorage.setItem('currentUser', useOTP); 
+            }
+
             localStorage.removeItem('currentOTP');
-            navigate('/home');
+
+            navigate('/');
         } else {
             alert("Mã OTP không đúng vui lòng kiểm tra lại.");
         }
