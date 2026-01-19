@@ -10,6 +10,7 @@ import CheckoutPage from "./components/CheckoutPage";
 import PostDetail from "./Pages/PostDetail";
 import ProductListPage from "./components/ProductListPage";
 import PostListPage from "./components/PostListPage";
+import OrderConfirmPage from "./components/OrderConfirmPage";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path="/posts/:id" element={<PostDetail />} />
         <Route path="/products" element={<ProductListPage />} />
         <Route path="/posts" element={<PostListPage />} />
-        <Route path="/xacminh" element={<CheckoutPage />} />
+        <Route path="/order-confirm" element={<OrderConfirmPage />} />
       </Routes>
     </BrowserRouter>
   );
