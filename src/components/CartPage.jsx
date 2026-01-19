@@ -7,7 +7,10 @@ import { updateQuantity, getCart } from "../fakeApi/cartApi";
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 66d9c5bc81c6e7b60f6baf9dbdc14d9332fcc0a2
 
 const CartPage = () => {
   const [cart, setCart] = useState();

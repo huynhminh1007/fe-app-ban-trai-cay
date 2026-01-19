@@ -75,6 +75,7 @@ export default function CheckoutPage() {
                     <h2>Chi tiết đơn hàng</h2>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <div className="form-row two-col">
                         <div>
                             <label>Tên <span>*</span></label>
@@ -89,6 +90,11 @@ export default function CheckoutPage() {
                         <label> Họ và tên <span>*</span></label>
                         <input type="text"/>
 >>>>>>> 66d9c5b (fix ui)
+=======
+                    <div className="form-row">
+                        <label> Họ và tên <span>*</span></label>
+                        <input type="text"/>
+>>>>>>> 66d9c5bc81c6e7b60f6baf9dbdc14d9332fcc0a2
                     </div>
 
                     <div className="form-row">
