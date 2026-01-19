@@ -1,15 +1,15 @@
 import "../styles/product_list_page.scss";
 import Header from "./Header";
-import { buildCategoryTree, getCategories } from "../fakeApi/categoryApi";
-import { ChevronDown } from "lucide-react";
+import { buildCategoryTree, getCategories } from "../fakeApi/postCategoryApi";
+import { ChevronDown, Link2Icon } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { getProducts } from "../fakeApi/productApi";
+import { getPosts } from "../fakeApi/postApi";
 import Footer from "./Footer";
 import "../styles/product_list.scss";
 import ProductLink from "./navigation/ProductLink";
 import { updateQuantity } from "../fakeApi/cartApi";
 import { showAddToCartToast, showCartErrorToast } from "./utils/Dialog";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { updateSearchParams } from "../utils/updateSearchParams";
 
 export default function PostListPage() {
@@ -18,23 +18,6 @@ export default function PostListPage() {
   const categoryId = searchParams.get("category")
     ? Number(searchParams.get("category"))
     : null;
-
-  const fromPrice = searchParams.get("from")
-    ? Number(searchParams.get("from"))
-    : null;
-
-  const toPrice = searchParams.get("to")
-    ? Number(searchParams.get("to"))
-    : null;
-
-  const [priceInput, setPriceInput] = useState({ from: "", to: "" });
-
-  useEffect(() => {
-    setPriceInput({
-      from: fromPrice ? String(fromPrice) : "",
-      to: toPrice ? String(toPrice) : "",
-    });
-  }, [fromPrice, toPrice]);
 
   const categoryTree = buildCategoryTree(categories);
 
@@ -53,9 +36,9 @@ export default function PostListPage() {
       <div className="product-list-page">
         <div className="section-container">
           <div className="container grid grid-cols-1 md:grid-cols-[2.5fr_7.5fr] gap-8 my-[30px]">
-            <div>
+            <div className="sticky top-24 self-start">
               <div className="plp_item bg-white border border-gray-300 overflow-hidden">
-                <h3 className="item__title">Danh mục cây giống</h3>
+                <h3 className="item__title">Chuyên mục</h3>
                 <CategoryTree
                   categories={categories}
                   activeId={categoryId}
@@ -67,59 +50,11 @@ export default function PostListPage() {
                   }
                 />
               </div>
-
-              <div className="plp_item bg-white border border-gray-300 overflow-hidden mt-[20px]">
-                <h3 className="item__title">Bộ lọc tìm kiếm</h3>
-                <div className="item__block">
-                  <h3>Khoảng giá</h3>
-                  <div className="item__block-body flex items-center">
-                    <input
-                      type="text"
-                      value={formatVND(priceInput.from)}
-                      onChange={(e) => {
-                        const raw = e.target.value.replace(/\D/g, "");
-                        setPriceInput({ ...priceInput, from: raw });
-                      }}
-                      placeholder="₫ TỪ"
-                    />
-
-                    <div className="range-line mx-2"></div>
-                    <input
-                      type="text"
-                      value={formatVND(priceInput.to)}
-                      onChange={(e) => {
-                        const raw = e.target.value.replace(/\D/g, "");
-                        setPriceInput({ ...priceInput, to: raw });
-                      }}
-                      placeholder="₫ ĐẾN"
-                    />
-                  </div>
-                  <button
-                    className="btn-apply w-full mt-4"
-                    onClick={() => {
-                      const from = priceInput.from
-                        ? Number(priceInput.from)
-                        : null;
-                      const to = priceInput.to ? Number(priceInput.to) : null;
-
-                      updateSearchParams(searchParams, setSearchParams, {
-                        from,
-                        to,
-                        page: 1,
-                      });
-                    }}
-                  >
-                    Áp dụng
-                  </button>
-                </div>
-              </div>
             </div>
-            <ProductList
+            <PostList
               categoryId={categoryId}
               selectedCategory={selectedCategory}
-              fromPrice={fromPrice}
-              toPrice={toPrice}
-              cols={{ base: 2, md: 4 }}
+              cols={{ base: 1, md: 1 }}
             />
           </div>
         </div>
@@ -127,16 +62,6 @@ export default function PostListPage() {
       <Footer />
     </>
   );
-}
-
-function formatVND(value) {
-  if (!value) return "";
-
-  const number = value.toString().replace(/\D/g, ""); // chỉ giữ số
-
-  if (!number) return "";
-
-  return new Intl.NumberFormat("vi-VN").format(Number(number));
 }
 
 function CategoryTree({ categories, activeId, onChangeCategory }) {
@@ -244,262 +169,50 @@ const mdGridCols = {
   4: "md:grid-cols-4",
 };
 
-function ProductList({
+function PostList({
   categoryId,
   selectedCategory,
   search,
-  fromPrice,
-  toPrice,
-  limit = 12,
-  cols = { base: 2, md: 4 },
+  limit = 5,
+  cols = { base: 1, md: 1 },
 }) {
-  const [products, setProducts] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [meta, setMeta] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const sort = searchParams.get("sort") || "popular";
   const page = Number(searchParams.get("page")) || 1;
-
-  const sortConfig = useMemo(() => {
-    switch (sort) {
-      case "price_asc":
-        return { orderBy: "price", order: "asc" };
-
-      case "price_desc":
-        return { orderBy: "price", order: "desc" };
-
-      case "bestSeller":
-        return { orderBy: "sold", order: "desc" };
-
-      case "newest":
-        return { orderBy: "newest", order: "desc" };
-
-      case "popular":
-      default:
-        return { orderBy: "rating", order: "desc" };
-    }
-  }, [sort]);
 
   useEffect(() => {
     setLoading(true);
 
-    const from = typeof fromPrice === "number" ? fromPrice : undefined;
-    const to = typeof toPrice === "number" ? toPrice : undefined;
-
-    getProducts({
+    getPosts({
       page,
       limit,
       categoryId,
-      fromPrice: from,
-      toPrice: to,
-      orderBy: sortConfig.orderBy,
-      order: sortConfig.order,
     }).then((res) => {
-      setProducts(res.data);
+      setPosts(res.data);
       setMeta(res.meta);
       setLoading(false);
+      console.log(res.data);
     });
-  }, [page, limit, categoryId, fromPrice, toPrice, sortConfig]);
+  }, [page, limit, categoryId]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [products]);
+  }, [posts]);
 
   return (
     <section className={`product-list-section section-container`}>
       {loading && <div className="text-center py-6">Đang tải...</div>}
 
       <div className="container product-list-section__inner md:rounded-lg py-4">
-        {selectedCategory?.description && (
-          <p
-            className="cat-description leading-relaxed text-sm text-gray-700"
-            dangerouslySetInnerHTML={{
-              __html: normalizeHtml(selectedCategory.description),
-            }}
-          />
-        )}
-
-        <div
-          className={`sort-product flex items-center ${
-            selectedCategory?.description ? "mt-[20px]" : ""
-          }`}
-        >
-          <span className="sp-title">Sắp xếp theo</span>
-
-          <button
-            className={sort === "popular" ? "active" : ""}
-            onClick={() =>
-              updateSearchParams(searchParams, setSearchParams, {
-                sort: "popular",
-                page: 1,
-              })
-            }
-          >
-            Phổ biến
-          </button>
-
-          <button
-            className={sort === "newest" ? "active" : ""}
-            onClick={() =>
-              updateSearchParams(searchParams, setSearchParams, {
-                sort: "newest",
-                page: 1,
-              })
-            }
-          >
-            Mới nhất
-          </button>
-
-          <button
-            className={sort === "bestSeller" ? "active" : ""}
-            onClick={() =>
-              updateSearchParams(searchParams, setSearchParams, {
-                sort: "bestSeller",
-                page: 1,
-              })
-            }
-          >
-            Bán chạy
-          </button>
-
-          <div className="sort-dropdown">
-            <button
-              className={`sort-trigger ${
-                sort.startsWith("price") ? "active" : ""
-              }`}
-            >
-              <span>
-                {sort === "price_asc"
-                  ? "Giá: Thấp đến Cao"
-                  : sort === "price_desc"
-                    ? "Giá: Cao đến Thấp"
-                    : "Giá"}
-              </span>
-
-              <ChevronDown
-                size={16}
-                className={`transition-transform ${
-                  sort.startsWith("price") ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            <div className="sort-menu">
-              <button
-                className={sort === "price_asc" ? "active" : ""}
-                onClick={() =>
-                  updateSearchParams(searchParams, setSearchParams, {
-                    sort: "price_asc",
-                    page: 1,
-                  })
-                }
-              >
-                <span>Giá: Thấp đến Cao</span>
-                {sort === "price_asc" && <i className="fa-solid fa-check" />}
-              </button>
-
-              <button
-                className={sort === "price_desc" ? "active" : ""}
-                onClick={() =>
-                  updateSearchParams(searchParams, setSearchParams, {
-                    sort: "price_desc",
-                    page: 1,
-                  })
-                }
-              >
-                <span>Giá: Cao đến Thấp</span>
-                {sort === "price_desc" && <i className="fa-solid fa-check" />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className={`product-list mt-[24px] grid gap-4 md:gap-6 ${
-            gridCols[cols.base]
-          } ${mdGridCols[cols.md]}`}
-        >
-          {products.map((p, idx) => {
-            const productImg = p.images[0];
-            const regularPrice = p.prices.regular_price;
-            const salePrice = p.prices.sale_price;
-
-            return (
-              <article
-                key={p.id}
-                className="product-card group bg-white shadow-sm overflow-hidden"
-              >
-                <div className="relative w-full">
-                  {p.on_sale && (
-                    <span className="product-card__badge">
-                      {`-${Math.round(
-                        ((regularPrice - salePrice) / regularPrice) * 100,
-                      )}%`}
-                    </span>
-                  )}
-                  <ProductLink productId={p.id}>
-                    <img
-                      src={productImg.thumbnail}
-                      alt={productImg.alt}
-                      className="w-full h-auto object-cover"
-                    />
-                  </ProductLink>
-
-                  {/* Overlay actions */}
-                  <div className="product-card__overlay">
-                    <button
-                      type="button"
-                      className="product-card__icon-btn"
-                      onClick={async () => {
-                        try {
-                          await updateQuantity("1", p.id, 1);
-                          showAddToCartToast();
-                        } catch (err) {
-                          showCartErrorToast(
-                            "Không thể thêm sản phẩm vào giỏ hàng",
-                          );
-                        }
-                      }}
-                    >
-                      <i className="fa-solid fa-cart-plus" />
-                    </button>
-                    <ProductLink
-                      productId={p.id}
-                      className="product-card__icon-btn"
-                      aria-label="Xem chi tiết sản phẩm"
-                    >
-                      <i className="fa-solid fa-eye" />
-                    </ProductLink>
-                  </div>
-                </div>
-
-                <div className="p-3 flex flex-col gap-1">
-                  <h3 className="product-card__name line-clamp-2 text-sm mb-2">
-                    <ProductLink productId={p.id}>{p.name}</ProductLink>
-                  </h3>
-                  <div className="w-full flex items-center justify-between">
-                    <div className="flex items-baseline gap-2">
-                      <span className="product-card__price text-base font-bold">
-                        {formatVND(p.prices.price)}
-                      </span>
-                      {p.on_sale && (
-                        <span className="product-card__old-price text-sm line-through">
-                          {formatVND(p.prices.regular_price)}
-                        </span>
-                      )}
-                    </div>
-
-                    <span className="text-xs text-[#000000DE]">
-                      Đã bán {p.totalSold}
-                    </span>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
+        <ul className="grid grid-cols-1 gap-6">
+          {posts.map((p) => (
+            <PostItem key={p.id} post={p} />
+          ))}
+        </ul>
       </div>
 
       {meta?.totalPages > 1 && (
@@ -514,6 +227,49 @@ function ProductList({
         />
       )}
     </section>
+  );
+}
+
+function PostItem({ post }) {
+  return (
+    <li className="post-card">
+      <div className="grid grod-cols-1 md:grid-cols-[3fr_7fr] gap-4">
+        <img src={post.thumbnail} alt={post.title} />
+        <div>
+          <h2 className="post-card__title text-lg leading-relaxed">
+            <Link to={"/posts/" + post.id}>{post.title}</Link>
+          </h2>
+          <p
+            className="leading-relaxed text-sm text-gray-700 text-base mt-3"
+            dangerouslySetInnerHTML={{
+              __html: normalizeHtml(post.excerpt),
+            }}
+          />
+        </div>
+      </div>
+      <div className="mt-3 text-xs">
+        <i className="fa-solid fa-tag mr-1"></i>
+
+        {post.tags.map((tag, index) => (
+          <span key={tag.id}>
+            <Link to={`/tag/${tag.slug}`} className="post-tag">
+              {tag.name}
+            </Link>
+
+            {index < post.tags.length - 1 && (
+              <span className="text-black">, </span>
+            )}
+          </span>
+        ))}
+      </div>
+
+      <div className="post-divider">
+        <span className="line"></span>
+        <Link to={`/posts/${post.id}`} className="view-more">
+          Xem thêm...
+        </Link>
+      </div>
+    </li>
   );
 }
 

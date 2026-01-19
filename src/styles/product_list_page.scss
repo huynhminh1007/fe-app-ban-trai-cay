@@ -284,3 +284,48 @@ ul.category-tree {
     }
   }
 }
+
+.post-card {
+  &__title {
+    color: v.$color-light-text;
+    font-weight: 500;
+  }
+
+  .post-tag {
+    color: v.$color-light-text;
+  }
+
+  .post-divider {
+    position: relative;
+    margin-top: 8px;
+    height: 24px;
+
+    .line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #e5e5e5;
+      transform: translateY(-50%);
+    }
+
+    .view-more {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: v.$color-primary;
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 2px;
+      text-decoration: none;
+      z-index: 1;
+
+      &:hover {
+        background: v.$color-primary-hover;
+      }
+    }
+  }
+}
