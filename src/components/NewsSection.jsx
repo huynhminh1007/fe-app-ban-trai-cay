@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/news.scss";
 import { formatVND } from "./utils/Format";
 
@@ -33,7 +34,7 @@ export default function NewsSection({
           </h2>
 
           <button className="btn btn-filled">
-            <a href=""> Xem thêm</a>
+            <Link to={"/posts?category=25"}> Xem thêm</Link>
           </button>
         </div>
 

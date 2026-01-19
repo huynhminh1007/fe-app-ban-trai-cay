@@ -2,7 +2,10 @@ import Header from "./Header";
 import BrandSection from "./BrandSection";
 import ProductListSection from "./ProductListSection";
 import test1 from "../res/imgs/anh_test_1.jpg";
-import cusComment1 from "../res/imgs/customer_comment_1.jpg";
+import cusComment1Img from "../res/imgs/customer_comment_1.jpg";
+import cusComment2Img from "../res/imgs/customer_comment_2.jpg";
+import cusComment3Img from "../res/imgs/customer_comment_3.jpg";
+import cusComment4Img from "../res/imgs/customer_comment_4.jpg";
 import phoneIcon from "../res/imgs/phone.png";
 import "../styles/home.scss";
 import NewsSection from "./NewsSection";
@@ -10,18 +13,37 @@ import Footer from "./Footer";
 import { getProducts } from "../fakeApi/productApi";
 import { useEffect, useState } from "react";
 import { getPosts } from "../fakeApi/postApi";
+import { Link } from "react-router-dom";
 
-const baseCusComment = {
+const cusComment1 = {
   title: "Mr.Hoàng",
   content:
     "“Tôi đã mua hàng tại Thế giới chi nhánh Cai Lậy & được tham gia chương trình rút thăm may mắn trúng thưởng & được mua cây giảm giá sốc. Sẽ quay lại nơi này mua cây giống thường xuyên”.",
-  image: cusComment1,
+  image: cusComment1Img,
 };
 
-const cusComments = [...Array(4)].map((_, i) => ({
-  ...baseCusComment,
-  id: i + 1,
-}));
+const cusComment2 = {
+  title: "Mr.Nam",
+  content:
+    "“Đây là Công ty chuyên cung cấp giống uy tín, chất lượng nên bà con yên tâm cứ yên tâm nhé. Mua hàng ở đây còn được tặng những phần quà ý nghĩa sẽ giới thiệu cho người thân đến đây mua cây giống.”",
+  image: cusComment2Img,
+};
+
+const cusComment3 = {
+  title: "Mr.Minh",
+  content:
+    "“Tôi đã mua hàng ở đây 1 lần mặc dù chỉ có vài cây nhưng ấn tượng cách nhân viên phục vụ rất tận tình & có hướng dẫn kỹ thuật chăm sóc và cách trồng cây chu đáo.”",
+  image: cusComment3Img,
+};
+
+const cusComment4 = {
+  title: "Mr.Thắng",
+  content:
+    "“Tôi đã mua cây giống ở nhiều cửa hàng nhưng tại Thế giống cây giống được bảo hành & cây giống bảo đảm, nhân viên rất vui vẻ và nhiệt tình sẽ quay lại mua thêm nếu có nhu cầu.”",
+  image: cusComment4Img,
+};
+
+const cusComments = [cusComment1, cusComment2, cusComment3, cusComment4];
 
 export default function Home() {
   const [onSaleProducts, setOnSaleProducts] = useState([]);
@@ -84,7 +106,9 @@ export default function Home() {
                         className="border border-[#ececec] p-[10px]"
                         key={item.id}
                       >
-                        <a href="">{item.title}</a>
+                        <Link to={`/posts/${item.id}`} className="news-link">
+                          {item.title}
+                        </Link>
                       </li>
                     ))}
                   </ul>

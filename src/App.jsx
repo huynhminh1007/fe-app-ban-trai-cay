@@ -7,7 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartPage from "./components/CartPage";
 import ProductDetailPage from "./Pages/ProductDetailPage";
 import CheckoutPage from "./components/CheckoutPage";
+import PostDetail from "./Pages/PostDetail";
 import ProductListPage from "./components/ProductListPage";
+import PostListPage from "./components/PostListPage";
 
 import Register from "./Pages/authenticationPage/Register";
 import ResetPass from "./Pages/authenticationPage/ResetPass";
@@ -27,7 +29,10 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/posts/:id" element={<PostDetail />} />
         <Route path="/products" element={<ProductListPage />} />
+        <Route path="/posts" element={<PostListPage />} />
+        <Route path="/xacminh" element={<CheckoutPage />} />
       </Routes>
     </BrowserRouter>
   );
