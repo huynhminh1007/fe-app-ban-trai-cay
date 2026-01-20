@@ -31,8 +31,6 @@ function TopHeader() {
   );
 }
 
-
-
 function MainHeader() {
   const [cartCount, setCartCount] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,6 +38,7 @@ function MainHeader() {
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [products, setProducts] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const [checkUserLogin, setCheckUserLogin] = useState(false);
 
@@ -49,19 +48,18 @@ function MainHeader() {
 
   // Check user login
   useEffect(() => {
-    const userLogin = JSON.parse(localStorage.getItem("currentUser"));
-    if(userLogin){
+    if (user) {
       setCheckUserLogin(true);
-    }else{
+    } else {
       setCheckUserLogin(false);
     }
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("currentUser");
+    localStorage.removeItem("user");
     setCheckUserLogin(false);
-    navigate("/");
-  }
+    // navigate("/");
+  };
 
   useEffect(() => {
     setCartCount(getCartCount("1"));

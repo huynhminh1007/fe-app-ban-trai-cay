@@ -26,7 +26,7 @@ export default function Login() {
       console.log("LOGIN SUCCESS:", user);
 
       // TODO: lưu user / token
-      // localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(user));
 
       navigate("/");
     } catch (err) {
