@@ -8,27 +8,27 @@ import { useState, useEffect } from "react";
 
 export default function CheckoutPage() {
   const navigate = useNavigate();
-  const handleOrder = () => {
-    navigate("/order-confirm", { state: { orderInfo, cart, totalPrice } });
-  };
-  const [showPopup, setShowPopup] = useState(false);
-  //const handleOrder = () => {setShowPopup(true);};
+
   const [tinhList, setTinhList] = useState([]);
   const [quanList, setQuanList] = useState([]);
   const [selectedTinh, setSelectedTinh] = useState("");
   const [cart, setCart] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
+
   const [orderInfo, setOrderInfo] = useState({
     name: "",
     address: "",
-    tinh: "",
-    quan: "",
+    tinhId: "",
+    tinhName: "",
+    quanId: "",
+    quanName: "",
     phone: "",
     email: "",
     note: "",
     shipMethod: "viettel",
   });
 
+  /* ================= LOAD CART ================= */
   useEffect(() => {
     async function loadCart() {
       const res = await getCart("1", [
@@ -52,6 +52,7 @@ export default function CheckoutPage() {
     loadCart();
   }, []);
 
+  /* ================= LOAD TỈNH ================= */
   useEffect(() => {
     fetch("https://esgoo.net/api-tinhthanh-new/1/0.htm")
       .then((res) => res.json())
@@ -62,6 +63,7 @@ export default function CheckoutPage() {
       });
   }, []);
 
+  /* ================= LOAD QUẬN THEO TỈNH ================= */
   useEffect(() => {
     if (!selectedTinh) return;
 
@@ -74,10 +76,19 @@ export default function CheckoutPage() {
       });
   }, [selectedTinh]);
 
+  /* ================= SUBMIT ================= */
+  const handleOrder = () => {
+    navigate("/order-confirm", {
+      state: { orderInfo, cart, totalPrice },
+    });
+  };
+
   return (
     <div className="checkout-page">
-      <div className="page-with-header">{/* <Header /> */}</div>
+      {/* <Header /> */}
+
       <div className="checkout-container">
+        {/* ========== LEFT ========== */}
         <div className="checkout-left">
           <h2>Chi tiết đơn hàng</h2>
 
@@ -108,15 +119,25 @@ export default function CheckoutPage() {
           </div>
 
           <div className="form-row two-col">
+            {/* ===== TỈNH ===== */}
             <div className="css_select_div">
               <select
                 className="css_select"
-                value={orderInfo.tinh}
+                value={orderInfo.tinhId}
                 onChange={(e) => {
-                  setSelectedTinh(e.target.value); // dùng để fetch quận
+                  const selected = tinhList.find(
+                    (t) => t.id === e.target.value,
+                  );
+
+                  setSelectedTinh(e.target.value);
+                  setQuanList([]);
+
                   setOrderInfo({
                     ...orderInfo,
-                    tinh: e.target.options[e.target.selectedIndex].text,
+                    tinhId: selected.id,
+                    tinhName: selected.full_name,
+                    quanId: "",
+                    quanName: "",
                   });
                 }}
               >
@@ -128,16 +149,23 @@ export default function CheckoutPage() {
                 ))}
               </select>
             </div>
+
+            {/* ===== QUẬN ===== */}
             <div className="css_select_div">
               <select
                 className="css_select"
-                value={orderInfo.quan}
-                onChange={(e) =>
+                value={orderInfo.quanId}
+                onChange={(e) => {
+                  const selected = quanList.find(
+                    (q) => q.id === e.target.value,
+                  );
+
                   setOrderInfo({
                     ...orderInfo,
-                    quan: e.target.options[e.target.selectedIndex].text,
-                  })
-                }
+                    quanId: selected.id,
+                    quanName: selected.full_name,
+                  });
+                }}
               >
                 <option value="">Quận / Huyện</option>
                 {quanList.map((quan) => (
@@ -175,7 +203,7 @@ export default function CheckoutPage() {
 
           <h3>Thông tin bổ sung</h3>
           <div className="form-row">
-            <label>Ghi chú đơn hàng (tùy chọn)</label>
+            <label>Ghi chú</label>
             <textarea
               rows="4"
               value={orderInfo.note}
@@ -186,7 +214,7 @@ export default function CheckoutPage() {
           </div>
         </div>
 
-        {/* ===== RIGHT: ORDER ===== */}
+        {/* ========== RIGHT ========== */}
         <div className="checkout-right">
           <h3>Đơn hàng</h3>
 
@@ -196,20 +224,22 @@ export default function CheckoutPage() {
               <span>Tổng</span>
             </div>
 
-            {cart?.items?.map((item) => {
-              const { product, quantity } = item;
-              return (
-                <div className="order-item" key={product.id}>
-                  <div className="order-product">
-                    <img src={product.images[0].src} alt={product.name} />
-                    <span>
-                      {product.name} × {quantity}
-                    </span>
-                  </div>
-                  <span>{formatVND(product.prices.price * quantity)}</span>
+            {cart?.items?.map((item) => (
+              <div className="order-item" key={item.product.id}>
+                <div className="order-product">
+                  <img
+                    src={item.product.images[0].src}
+                    alt={item.product.name}
+                  />
+                  <span>
+                    {item.product.name} × {item.quantity}
+                  </span>
                 </div>
-              );
-            })}
+                <span>
+                  {formatVND(item.product.prices.price * item.quantity)}
+                </span>
+              </div>
+            ))}
 
             <div className="order-subtotal">
               <span>Tạm tính</span>
@@ -244,7 +274,7 @@ export default function CheckoutPage() {
                   setOrderInfo({ ...orderInfo, shipMethod: "viettel" })
                 }
               />
-              Vận chuyển qua Viettel Post
+              Viettel Post
             </label>
           </div>
 
@@ -253,9 +283,8 @@ export default function CheckoutPage() {
           </button>
         </div>
       </div>
-      {/* <div className="page-with-footer">
-        <Footer />
-      </div> */}
+
+      {/* <Footer /> */}
     </div>
   );
 }

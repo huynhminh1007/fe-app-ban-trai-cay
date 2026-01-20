@@ -8,26 +8,16 @@ const axiosClient = axios.create({
   timeout: 15000,
 });
 
-/**
- * Response interceptor
- * Backend trả về:
- * {
- *   code: 200,
- *   message: "...",
- *   data: {...}
- * }
- */
 axiosClient.interceptors.response.use(
   (response) => {
-    const apiResponse = response.data;
-
-    if (apiResponse?.code !== 200) {
-      return Promise.reject(apiResponse);
+    if (response.data?.code !== 200) {
+      return Promise.reject(response.data);
     }
-
-    return apiResponse;
+    return response.data;
   },
   (error) => {
+    console.error("AXIOS ERROR:", error);
+
     if (error.response?.data) {
       return Promise.reject(error.response.data);
     }

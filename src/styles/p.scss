@@ -1,0 +1,18 @@
+@use "./variables" as v;
+
+.similar-wrapper {
+  .section-title {
+    color: #212b25 !important;
+  }
+}
+
+.text-rating {
+  color: #ff4500;
+}
+
+.con-1 {
+  background-color: rgba($color: v.$color-primary, $alpha: 0.05);
+  padding: 1.875rem;
+  border-radius: 2px;
+  align-items: center;
+}
