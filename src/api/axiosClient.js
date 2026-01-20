@@ -1,11 +1,22 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
+  baseURL:
+    "https://syndetically-indictable-noma.ngrok-free.dev/api/v1/caygiong.com",
   timeout: 15000,
+  headers: {
+    "ngrok-skip-browser-warning": "true",
+  },
+});
+
+axiosClient.interceptors.request.use((config) => {
+  if (config.data instanceof FormData) {
+    delete config.headers["Content-Type"];
+  } else {
+    config.headers["Content-Type"] = "application/json";
+  }
+
+  return config;
 });
 
 axiosClient.interceptors.response.use(
@@ -13,19 +24,12 @@ axiosClient.interceptors.response.use(
     if (response.data?.code !== 200) {
       return Promise.reject(response.data);
     }
+
     return response.data;
   },
   (error) => {
     console.error("AXIOS ERROR:", error);
-
-    if (error.response?.data) {
-      return Promise.reject(error.response.data);
-    }
-
-    return Promise.reject({
-      code: -1,
-      message: "Không thể kết nối tới server",
-    });
+    return Promise.reject(error.response?.data || error);
   },
 );
 
