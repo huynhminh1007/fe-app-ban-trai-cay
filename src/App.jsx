@@ -16,12 +16,15 @@ import Register from "./Pages/authenticationPage/Register";
 import ResetPass from "./Pages/authenticationPage/ResetPass";
 import ConfirmPass from "./Pages/authenticationPage/ConfirmPass";
 import OTPConfirm from "./Pages/authenticationPage/OTPConfirm";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<SignUp />} />
         <Route path="/reset-password" element={<ResetPass />} />
         <Route path="/confirm-password" element={<ConfirmPass />} />
         <Route path="/otp-confirm" element={<OTPConfirm />} />
