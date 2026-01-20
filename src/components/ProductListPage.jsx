@@ -63,6 +63,7 @@ export default function ProductListPage() {
                     updateSearchParams(searchParams, setSearchParams, {
                       category: id,
                       page: 1,
+                      search: "",
                     })
                   }
                 />
